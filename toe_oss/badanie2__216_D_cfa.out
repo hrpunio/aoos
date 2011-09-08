@@ -1,0 +1,417 @@
+
+                                DATE:  2/16/2011
+                                  TIME: 10:46
+
+
+                                L I S R E L  8.72
+
+                                       BY
+
+                         Karl G. J”reskog & Dag S”rbom
+
+
+
+                    This program is published exclusively by
+                    Scientific Software International, Inc.
+                       7383 N. Lincoln Avenue, Suite 100
+                        Lincolnwood, IL 60712, U.S.A. 
+            Phone: (800)247-6113, (847)675-0720, Fax: (847)675-2140
+        Copyright by Scientific Software International, Inc., 1981-2005 
+          Use of this program is subject to the terms specified in the
+                        Universal Copyright Convention.
+                          Website: www.ssicentral.com
+
+ The following lines were read from file badanie2__216_D_cfa.ls8:
+
+ !! Skale dla serwerów
+  
+ DA NI=42 NO=216 MA=CM
+  
+ KM FI=badanie_toe.mtx
+  
+ ! Etykiety miar (podane w kolejnosci w jakiej wystêpuj± w macierzy KM
+ ! s2 d2 s3 d3 s4 d4 s5 d5 s6 d6 s7 d7 s8 d8 s9 d9 s10 d10 s11 d11 s12 d12 s13 d13 s14 d14 p23 p24 lkomp p25b p26 p27 p3 ocenaoss p5 p6 p7 p8 s1 d1 zoss llkomp
+ LA fi=badanie_toe.lbl
+  
+ ! Zmiana kolejnosci (przypisanie miar czynnikom X1--X25 --> PU, X3--X21 --> PEOU itd...
+ ! je¿eli nie wszystkie zmienne s± wybrane zakoñcz polecenie SE znakiem `/'
+ !       korzbzp     koszty     korzysci    sat        zlozonosc
+ SE ;    d2 d3       d7 d8      d4 d6       d11 d12    p26 llkomp /
+  
+ ! Okre¶lenie modelu SEM
+ MO NX=10 NK=5 LX=FU,FI PH=SY,FR TD=DI,FR
+  
+ LK ; korzbzp koszty korzysci satysfakcja zlozo
+  
+ FR LX(2,1)  ! korzbzp
+ FR LX(4,2)  ! korzbzp
+ FR LX(6,3)  ! korzysci
+ FR LX(8,4)  ! sat
+ FR LX(10,5) ! zlozo
+  
+ VA 1 LX(1,1) LX(3,2) LX(5,3) LX(7,4) LX(9,5);
+  
+ ST .5 ALL
+  
+ !OU ME=ML ND=3 MI RS MR SC AD=200
+ OU ME=ML ND=3 MI RS MR SC AD=OFF IT=500
+
+ !! Skale dla serwerów                                                          
+
+                           Number of Input Variables 42
+                           Number of Y - Variables    0
+                           Number of X - Variables   10
+                           Number of ETA - Variables  0
+                           Number of KSI - Variables  5
+                           Number of Observations   216
+
+ !! Skale dla serwerów                                                          
+
+         Covariance Matrix       
+
+                  d2         d3         d7         d8         d4         d6   
+            --------   --------   --------   --------   --------   --------
+       d2      1.000
+       d3      0.710      1.000
+       d7     -0.148     -0.199      1.000
+       d8     -0.107     -0.124      0.658      1.000
+       d4      0.347      0.417     -0.179     -0.242      1.000
+       d6      0.308      0.360     -0.274     -0.354      0.515      1.000
+      d11     -0.046      0.035     -0.066     -0.096      0.213      0.058
+      d12     -0.054      0.028      0.005      0.019      0.092      0.046
+      p26      0.080      0.052      0.001      0.043      0.020      0.056
+   llkomp     -0.046     -0.058      0.026      0.050     -0.212     -0.075
+
+         Covariance Matrix       
+
+                 d11        d12        p26     llkomp   
+            --------   --------   --------   --------
+      d11      1.000
+      d12      0.509      1.000
+      p26     -0.077     -0.074      1.000
+   llkomp     -0.070     -0.062      0.526      1.000
+
+
+ !! Skale dla serwerów                                                          
+
+ Parameter Specifications
+
+         LAMBDA-X    
+
+             korzbzp     koszty   korzysci   satysfak      zlozo
+            --------   --------   --------   --------   --------
+       d2          0          0          0          0          0
+       d3          1          0          0          0          0
+       d7          0          0          0          0          0
+       d8          0          2          0          0          0
+       d4          0          0          0          0          0
+       d6          0          0          3          0          0
+      d11          0          0          0          0          0
+      d12          0          0          0          4          0
+      p26          0          0          0          0          0
+   llkomp          0          0          0          0          5
+
+         PHI         
+
+             korzbzp     koszty   korzysci   satysfak      zlozo
+            --------   --------   --------   --------   --------
+  korzbzp          6
+   koszty          7          8
+ korzysci          9         10         11
+ satysfak         12         13         14         15
+    zlozo         16         17         18         19         20
+
+         THETA-DELTA 
+
+                  d2         d3         d7         d8         d4         d6
+            --------   --------   --------   --------   --------   --------
+                  21         22         23         24         25         26
+
+         THETA-DELTA 
+
+                 d11        d12        p26     llkomp
+            --------   --------   --------   --------
+                  27         28         29         30
+ 
+
+
+ !! Skale dla serwerów                                                          
+
+ Number of Iterations =271
+
+ LISREL Estimates (Maximum Likelihood)                           
+
+ W_A_R_N_I_N_G: TD 9,9 may not be identified.
+                Standard Errors, T-Values, Modification Indices,
+                and Standardized Residuals cannot be computed.
+
+         LAMBDA-X    
+
+             korzbzp     koszty   korzysci   satysfak      zlozo   
+            --------   --------   --------   --------   --------
+       d2      1.000       - -        - -        - -        - - 
+ 
+       d3      1.149       - -        - -        - -        - - 
+ 
+       d7       - -       1.000       - -        - -        - - 
+ 
+       d8       - -       1.370       - -        - -        - - 
+ 
+       d4       - -        - -       1.000       - -        - - 
+ 
+       d6       - -        - -       0.933       - -        - - 
+ 
+      d11       - -        - -        - -       1.000       - - 
+ 
+      d12       - -        - -        - -       0.468       - - 
+ 
+      p26       - -        - -        - -        - -       1.000
+ 
+   llkomp       - -        - -        - -        - -       0.001
+ 
+
+         PHI         
+
+             korzbzp     koszty   korzysci   satysfak      zlozo   
+            --------   --------   --------   --------   --------
+  korzbzp      0.618
+ 
+   koszty     -0.086      0.480
+ 
+ korzysci      0.348     -0.220      0.551
+ 
+ satysfak      0.010     -0.072      0.148      1.085
+ 
+    zlozo      0.081      0.009      0.123     -0.038    439.643
+ 
+
+         THETA-DELTA 
+
+                  d2         d3         d7         d8         d4         d6   
+            --------   --------   --------   --------   --------   --------
+               0.382      0.184      0.520      0.099      0.449      0.519
+ 
+
+         THETA-DELTA 
+
+                 d11        d12        p26     llkomp   
+            --------   --------   --------   --------
+              -0.085      0.762   -438.620      0.999
+ 
+
+         Squared Multiple Correlations for X - Variables         
+
+                  d2         d3         d7         d8         d4         d6   
+            --------   --------   --------   --------   --------   --------
+               0.618      0.816      0.480      0.901      0.551      0.481
+
+         Squared Multiple Correlations for X - Variables         
+
+                 d11        d12        p26     llkomp   
+            --------   --------   --------   --------
+               1.085      0.238    429.709      0.001
+
+
+                           Goodness of Fit Statistics
+
+                             Degrees of Freedom = 25
+               Minimum Fit Function Chi-Square = 33.184 (P = 0.127)
+       Normal Theory Weighted Least Squares Chi-Square = 32.519 (P = 0.144)
+                 Estimated Non-centrality Parameter (NCP) = 7.519
+             90 Percent Confidence Interval for NCP = (0.0 ; 26.403)
+ 
+                        Minimum Fit Function Value = 0.154
+               Population Discrepancy Function Value (F0) = 0.0350
+              90 Percent Confidence Interval for F0 = (0.0 ; 0.123)
+             Root Mean Square Error of Approximation (RMSEA) = 0.0374
+            90 Percent Confidence Interval for RMSEA = (0.0 ; 0.0701)
+               P-Value for Test of Close Fit (RMSEA < 0.05) = 0.701
+ 
+                  Expected Cross-Validation Index (ECVI) = 0.430
+            90 Percent Confidence Interval for ECVI = (0.395 ; 0.518)
+                         ECVI for Saturated Model = 0.512
+                       ECVI for Independence Model = 2.902
+ 
+      Chi-Square for Independence Model with 45 Degrees of Freedom = 603.986
+                            Independence AIC = 623.986
+                                Model AIC = 92.519
+                             Saturated AIC = 110.000
+                           Independence CAIC = 667.738
+                               Model CAIC = 223.777
+                             Saturated CAIC = 350.640
+ 
+                          Normed Fit Index (NFI) = 0.945
+                       Non-Normed Fit Index (NNFI) = 0.974
+                    Parsimony Normed Fit Index (PNFI) = 0.525
+                       Comparative Fit Index (CFI) = 0.985
+                       Incremental Fit Index (IFI) = 0.986
+                         Relative Fit Index (RFI) = 0.901
+ 
+                            Critical N (CN) = 288.114
+ 
+ 
+                     Root Mean Square Residual (RMR) = 0.0514
+                            Standardized RMR = 0.0513
+                       Goodness of Fit Index (GFI) = 0.971
+                  Adjusted Goodness of Fit Index (AGFI) = 0.935
+                  Parsimony Goodness of Fit Index (PGFI) = 0.441
+
+ !! Skale dla serwerów                                                          
+
+         Fitted Covariance Matrix
+
+                  d2         d3         d7         d8         d4         d6   
+            --------   --------   --------   --------   --------   --------
+       d2      1.000
+       d3      0.710      1.000
+       d7     -0.086     -0.099      1.000
+       d8     -0.119     -0.136      0.658      1.000
+       d4      0.348      0.400     -0.220     -0.302      1.000
+       d6      0.325      0.373     -0.206     -0.282      0.515      1.000
+      d11      0.010      0.011     -0.072     -0.099      0.148      0.138
+      d12      0.005      0.005     -0.034     -0.046      0.069      0.065
+      p26      0.081      0.093      0.009      0.012      0.123      0.114
+   llkomp      0.000      0.000      0.000      0.000      0.000      0.000
+
+         Fitted Covariance Matrix
+
+                 d11        d12        p26     llkomp   
+            --------   --------   --------   --------
+      d11      1.000
+      d12      0.509      1.000
+      p26     -0.038     -0.018      1.023
+   llkomp      0.000      0.000      0.547      1.000
+
+         Fitted Residuals
+
+                  d2         d3         d7         d8         d4         d6   
+            --------   --------   --------   --------   --------   --------
+       d2      0.000
+       d3      0.000      0.000
+       d7     -0.062     -0.099      0.000
+       d8      0.011      0.013      0.000      0.000
+       d4     -0.001      0.017      0.042      0.060      0.000
+       d6     -0.017     -0.013     -0.068     -0.072      0.000      0.000
+      d11     -0.056      0.023      0.006      0.003      0.065     -0.080
+      d12     -0.059      0.023      0.039      0.065      0.022     -0.019
+      p26     -0.001     -0.042     -0.008      0.031     -0.102     -0.058
+   llkomp     -0.046     -0.058      0.026      0.050     -0.212     -0.075
+
+         Fitted Residuals
+
+                 d11        d12        p26     llkomp   
+            --------   --------   --------   --------
+      d11      0.000
+      d12      0.000      0.000
+      p26     -0.039     -0.056     -0.023
+   llkomp     -0.070     -0.062     -0.021      0.000
+
+ Summary Statistics for Fitted Residuals
+
+ Smallest Fitted Residual =   -0.212
+   Median Fitted Residual =    0.000
+  Largest Fitted Residual =    0.065
+
+ Stemleaf Plot
+
+ - 2|1 
+ - 1| 
+ - 1|00 
+ - 0|8877766666665 
+ - 0|442222110000000000000000 
+   0|11122223344 
+   0|5667
+
+ !! Skale dla serwerów                                                          
+
+ Covariances
+
+         X - KSI 
+
+                  d2         d3         d7         d8         d4         d6   
+            --------   --------   --------   --------   --------   --------
+  korzbzp      0.618      0.710     -0.086     -0.119      0.348      0.325
+   koszty     -0.086     -0.099      0.480      0.658     -0.220     -0.206
+ korzysci      0.348      0.400     -0.220     -0.302      0.551      0.515
+ satysfak      0.010      0.011     -0.072     -0.099      0.148      0.138
+    zlozo      0.081      0.093      0.009      0.012      0.123      0.114
+
+         X - KSI 
+
+                 d11        d12        p26     llkomp   
+            --------   --------   --------   --------
+  korzbzp      0.010      0.005      0.081      0.000
+   koszty     -0.072     -0.034      0.009      0.000
+ korzysci      0.148      0.069      0.123      0.000
+ satysfak      1.085      0.509     -0.038      0.000
+    zlozo     -0.038     -0.018    439.643      0.547
+
+ !! Skale dla serwerów                                                          
+
+ Standardized Solution           
+
+         LAMBDA-X    
+
+             korzbzp     koszty   korzysci   satysfak      zlozo   
+            --------   --------   --------   --------   --------
+       d2      0.786       - -        - -        - -        - - 
+       d3      0.903       - -        - -        - -        - - 
+       d7       - -       0.693       - -        - -        - - 
+       d8       - -       0.949       - -        - -        - - 
+       d4       - -        - -       0.743       - -        - - 
+       d6       - -        - -       0.693       - -        - - 
+      d11       - -        - -        - -       1.042       - - 
+      d12       - -        - -        - -       0.488       - - 
+      p26       - -        - -        - -        - -      20.968
+   llkomp       - -        - -        - -        - -       0.026
+
+         PHI                                     
+
+             korzbzp     koszty   korzysci   satysfak      zlozo   
+            --------   --------   --------   --------   --------
+  korzbzp      1.000
+   koszty     -0.159      1.000
+ korzysci      0.596     -0.428      1.000
+ satysfak      0.012     -0.100      0.192      1.000
+    zlozo      0.005      0.001      0.008     -0.002      1.000
+
+ !! Skale dla serwerów                                                          
+
+ Completely Standardized Solution
+
+         LAMBDA-X    
+
+             korzbzp     koszty   korzysci   satysfak      zlozo   
+            --------   --------   --------   --------   --------
+       d2      0.786       - -        - -        - -        - - 
+       d3      0.903       - -        - -        - -        - - 
+       d7       - -       0.693       - -        - -        - - 
+       d8       - -       0.949       - -        - -        - - 
+       d4       - -        - -       0.743       - -        - - 
+       d6       - -        - -       0.693       - -        - - 
+      d11       - -        - -        - -       1.042       - - 
+      d12       - -        - -        - -       0.488       - - 
+      p26       - -        - -        - -        - -      20.729
+   llkomp       - -        - -        - -        - -       0.026
+
+         PHI                                     
+
+             korzbzp     koszty   korzysci   satysfak      zlozo   
+            --------   --------   --------   --------   --------
+  korzbzp      1.000
+   koszty     -0.159      1.000
+ korzysci      0.596     -0.428      1.000
+ satysfak      0.012     -0.100      0.192      1.000
+    zlozo      0.005      0.001      0.008     -0.002      1.000
+
+         THETA-DELTA 
+
+                  d2         d3         d7         d8         d4         d6   
+            --------   --------   --------   --------   --------   --------
+               0.382      0.184      0.520      0.099      0.449      0.519
+
+         THETA-DELTA 
+
+                 d11        d12        p26     llkomp   
+            --------   --------   --------   --------
+              -0.085      0.762   -428.709      0.999

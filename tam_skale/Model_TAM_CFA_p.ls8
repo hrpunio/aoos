@@ -1,0 +1,32 @@
+CFA dla modelu 3 czynnikow (PU, PEOU, BI). Skale wstepne (13 zmiennych)
+! Por. skrypt Model_TAM_CFA_f.ls8 zawierajacy wersje ostateczna
+! (c) T.Przechlewski 2011 (licencja GPL) http://member.acm.org/~tprzechlewski/sem/
+
+DA NI=14 NO=192 MA=CM
+
+KM FI=Model_TAM.mtx
+
+! Etykiety miar (podane w kolejnosci w jakiej wystêpuj± w macierzy KM)
+LA FI=Model_TAM.lbl
+
+! Zmiana kolejnosci (przypisanie miar czynnikom) je¿eli nie wszystkie zmienne 
+! s± wybrane zakoñcz polecenie SE znakiem `/'
+!    --- PEOU  --            ---- PU ------         --- BI -------      
+SE ; eu1 eu2 eu3 eu4 eu5     pu1 pu2 pu3 pu5 pu4    bi1 bi2 bi3    /
+
+
+! Okre¶lenie modelu SEM
+MO NX=13 NK=3 LX=FU,FI PH=SY,FR TD=DI,FR
+
+LK ; PEOU PU BI
+
+FR LX(1,1)  LX(2,1)   LX(3,1)  LX(4,1) LX(5,1)    ! PEOU
+FR LX(6,2)  LX(7,2)   LX(8,2)  LX(9,2) LX(10,2)   ! PU
+FR LX(11,3) LX(12,3)  LX(13,3)                    ! BI
+
+! Ustalenie skal dla zmiennych nieobserwowalnych
+FI PH(1,1) PH(2,2) PH(3,3) 
+VA 1 PH(1,1) PH(2,2) PH(3,3)
+
+OU ME=ML ND=3 MI RS MR SC AD=200
+

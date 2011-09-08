@@ -1,0 +1,18 @@
+Skrypt PRELIS generujacy macierz kowariancji z danych RAW
+! Por. skrypt Model_TAM_CFA_p.ls8 zawierajacy wersje wstepna
+! (c) T.Przechlewski 2011 (licencja GPL) http://member.acm.org/~tprzechlewski/sem/
+
+! NI, liczba zm. obserwowalnych ; NO, liczba obserwacji
+DATA NI=14 NO=192
+
+! FI -- plik z danymi w formacie FREE
+RAW FI=Model_TAM.txt
+
+! etykiety zmiennych (w PRELIS do niczego niepotrzebne)
+LA  FI=Model_TAM.lbl
+
+! macierz kowariancji (do wykorzystania przez LISREL)
+OUTPUT MATRIX=KM SM=Model_TAM.mtx
+
+!OK
+

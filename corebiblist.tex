@@ -1,0 +1,51 @@
+% (c) T. Przechlewski, 2011; licencja GPL
+\documentclass{article}
+\usepackage{polski}
+\usepackage{natbib,graphicx}
+\usepackage[pdftex,pagebackref=true,breaklinks=true,]{hyperref} 
+\usepackage[latin2]{inputenc}
+\newcommand{\FFx}{\acro{FF}} %% Oznacza FireFoksa
+\newcommand\factor[1]{\acro{#1}}
+\DeclareRobustCommand\acro[1]{\ifx \f@series \BFseriesCode #1\else\textsc{\lowercase{#1}}\fi}
+\title{Zestawienie literatury nt.~behawioralnych modeli akceptacji}
+\author{Tomasz Przechlewski}
+\date{2011}
+\begin{document}
+\bibliographystyle{papalike}
+\maketitle
+
+Czynnik PIIT i inne takie : \cite{AgarwalPrasad1998} (PIIT),
+\cite{ChoudhuryKarahanna2008} (wzglêdna przewaga jako formatywny czynnik drugiego stopnia),
+\cite{BalabanisReynoldsSimintiras2006} (koszty zmiany)
+
+Model TAM/UTAUT:
+\cite{Davis1989}, \cite{DavisetAl1989},  \cite{DedrickWest04}, \cite{IgbariaetAl97}, \cite{MooreBenbasat1991},
+\cite{VenkateshEtAl03}, \cite{Bagozzi2007}, \cite{MathiesonEtAl01}
+
+Model Bhattacherjee: \cite{Bhattacherjee2001}
+
+Model DeLone-McLean'a: \cite{DeLoneMcLean1992} \cite{DeLone2003}
+
+Teoria instytucjonalna: \cite{TeoEtal03}
+
+Model TOE: \cite{ChauTam97}, \cite{ChauTam00}
+
+Metoda SEM i~PLS:  \cite{Segars1997}, \cite{JoreskogSorbom1993}, \cite{AndersonGerbing87}, \cite{bagozziDholakia06},
+\cite{Bollen89}, \cite{BoudreauGefenStraub2001}, 
+\cite{GefenEtal2000}, 
+[[\cite{DengDollHendrickson2005},
+\cite{Hulland99}, 
+\cite{HullandYiuShunyin1996}, \cite{MalhotraGrover1998}.
+
+\bibliography{../bibh/tph,../bibh/tph-aux}
+
+\end{document}
+
+% Local Variables:
+% TeX-master: ""
+% mode: latex
+% coding: iso-8859-2
+% ispell-local-dictionary: "polish"
+% LocalWords:
+% LocalWords:
+% End:

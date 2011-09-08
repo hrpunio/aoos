@@ -1,0 +1,34 @@
+Test trafnosci dyskryminacyjnej
+! Test trafnosci dyskryminacyjnej  polegajacy na porownaniu modelu ograniczonego
+! z modelem swobodnie korelujacych czynnikow, cf. opis w skrypcie dvt.pl
+! CFA dla modelu 3 czynnikow (PU, PEOU, BI). Skale ostateczne (10 zmiennych)
+! (c) T.Przechlewski 2011 (licencja GPL) http://member.acm.org/~tprzechlewski/sem/
+
+DA NI=20 NO=209 MA=CM
+
+KM FI=TAM_ff.mtx
+
+! Etykiety miar (podane w kolejnosci w jakiej wystêpuj± w macierzy KM
+LA ; Pu1 Pu2 Pu3 Pu4 Pu5 Eou1 Eou2 Eou3 Eou4 Eou5 Att1 Att2 Att3 Att4 Bi1 Bi2 Bi3 Age Time Zstatus
+
+! Zmiana kolejnosci (przypisanie miar czynnikom X1--X25 --> PU, X3--X21 --> PEOU itd...
+SE ; Pu1 Pu3 Pu4 Bi1 Bi2 Bi3 Eou2 Eou3 Eou4 Eou5 / 
+
+! Okre¶lenie modelu SEM
+MO NX=10 NK=3 LX=FU,FI PH=SY,FR TD=DI,FR
+
+! Etykiety zmiennych Xi
+LK ; PU BI EOU
+
+FR LX(2,1) LX(3,1)                    ! PU
+FR LX(5,2) LX(6,2)                    ! ITU
+FR LX(8,3) LX(9,3) LX(10,3) LX(10,3)  ! EOU
+
+VA 1 LX(1,1) LX(4,2) LX(7,3)
+
+! <<FIXPHI>>
+!FI PH(1,2)
+!VA 1 PH(1,2)
+
+
+OU ME=ML ND=3 MI RS MR SC AD=200

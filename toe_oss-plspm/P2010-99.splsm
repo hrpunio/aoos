@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--SmartPLS model file-->
+<model>
+  <manifest datacolumn="s7" visible="true" name="s7" x="15" y="420" id="26994414" width="75" height="25" />
+  <manifest datacolumn="s11" visible="true" name="s11" x="809" y="710" id="32240895" width="75" height="25" />
+  <manifest datacolumn="s12" visible="true" name="s12" x="1154" y="642" id="15953497" width="75" height="25" />
+  <manifest datacolumn="ocenaoss" visible="true" name="ocenaoss" x="1068" y="413" id="27595538" width="75" height="25" />
+  <manifest datacolumn="lkomp" visible="true" name="lkomp" x="365" y="731" id="11145468" width="75" height="25" />
+  <manifest datacolumn="p23" visible="true" name="p23" x="843" y="50" id="4545192" width="75" height="25" />
+  <manifest datacolumn="s13" visible="true" name="s13" x="1170" y="80" id="18883255" width="75" height="25" />
+  <manifest datacolumn="s14" visible="true" name="s14" x="1192" y="246" id="9722773" width="75" height="25" />
+  <manifest datacolumn="s9" visible="true" name="s9" x="114" y="615" id="14733675" width="75" height="25" />
+  <manifest datacolumn="s4" visible="true" name="s4" x="214" y="24" id="29781703" width="75" height="25" />
+  <manifest datacolumn="s5" visible="true" name="s5" x="58" y="123" id="373324" width="75" height="25" />
+  <manifest datacolumn="s6" visible="true" name="s6" x="76" y="240" id="8560954" width="75" height="25" />
+  <manifest datacolumn="s10" visible="true" name="s10" x="58" y="313" id="399262" width="75" height="25" />
+  <manifest datacolumn="s8" visible="true" name="s8" x="19" y="513" id="22569956" width="75" height="25" />
+  <manifest datacolumn="p26" visible="true" name="p26" x="618" y="729" id="5192610" width="75" height="25" />
+  <latent visible="true" name="Use" x="790" y="352" id="11604324" width="60" height="74" folded="false" alignment="LEFT" />
+  <latent visible="true" name="Koszty" x="236" y="403" id="28488784" width="60" height="74" folded="false" alignment="LEFT" />
+  <latent visible="true" name="Satysfakcja" x="987" y="611" id="8814509" width="60" height="74" folded="false" alignment="LEFT" />
+  <latent visible="true" name="zlozonosc" x="449" y="575" id="2915013" width="60" height="74" folded="false" alignment="LEFT" />
+  <latent visible="true" name="Dostosowanie" x="617" y="99" id="18259890" width="60" height="74" folded="false" alignment="LEFT" />
+  <latent visible="true" name="wsparcie" x="1006" y="153" id="5210968" width="60" height="74" folded="false" alignment="LEFT" />
+  <latent visible="true" name="Korzysci" x="276" y="113" id="20945327" width="60" height="74" folded="false" alignment="LEFT" />
+  <connection visible="true" source="2915013" target="11604324" />
+  <connection visible="true" source="5210968" target="11604324" />
+  <connection visible="true" source="8814509" target="11604324" />
+  <connection visible="true" source="29781703" target="20945327" />
+  <connection visible="true" source="2915013" target="5192610" />
+  <connection visible="true" source="9722773" target="5210968" />
+  <connection visible="true" source="8560954" target="20945327" />
+  <connection visible="true" source="28488784" target="11604324" />
+  <connection visible="true" source="22569956" target="28488784" />
+  <connection visible="true" source="26994414" target="28488784" />
+  <connection visible="true" source="373324" target="20945327" />
+  <connection visible="true" source="8814509" target="15953497" />
+  <connection visible="true" source="20945327" target="11604324" />
+  <connection visible="true" source="8814509" target="32240895" />
+  <connection visible="true" source="18259890" target="11604324" />
+  <connection visible="true" source="4545192" target="18259890" />
+  <connection visible="true" source="18883255" target="5210968" />
+  <connection visible="true" source="14733675" target="28488784" />
+  <connection visible="true" source="27595538" target="11604324" />
+  <connection visible="true" source="2915013" target="11145468" />
+  <connection visible="true" source="399262" target="28488784" />
+</model>
+

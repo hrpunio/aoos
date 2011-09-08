@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--SmartPLS model file-->
+<model>
+  <manifest datacolumn="s7" visible="true" name="s7" x="71" y="541" id="31985466" width="75" height="25" />
+  <manifest datacolumn="s9" visible="true" name="s9" x="70" y="681" id="9719229" width="75" height="25" />
+  <manifest datacolumn="s5" visible="true" name="s5" x="24" y="235" id="33256805" width="75" height="25" />
+  <manifest datacolumn="s6" visible="true" name="s6" x="35" y="353" id="2210174" width="75" height="25" />
+  <manifest datacolumn="ocenaoss" visible="true" name="ocenaoss" x="809" y="388" id="23637981" width="75" height="25" />
+  <latent visible="true" name="Korzysci" x="240" y="227" id="30473962" width="60" height="74" folded="false" alignment="LEFT" />
+  <latent visible="true" name="Use" x="578" y="325" id="14335210" width="60" height="74" folded="false" alignment="LEFT" />
+  <latent visible="true" name="Koszty" x="309" y="596" id="25704433" width="60" height="74" folded="false" alignment="LEFT" />
+  <connection visible="true" source="9719229" target="25704433" />
+  <connection visible="true" source="33256805" target="30473962" />
+  <connection visible="true" source="14335210" target="23637981" />
+  <connection visible="true" source="30473962" target="14335210" />
+  <connection visible="true" source="25704433" target="14335210" />
+  <connection visible="true" source="2210174" target="30473962" />
+  <connection visible="true" source="31985466" target="25704433" />
+</model>
+

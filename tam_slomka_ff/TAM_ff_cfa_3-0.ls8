@@ -1,0 +1,37 @@
+CFA dla modelu trzech czynnikow (PU, PEOU, BI). Skale wstepne (13 miar)
+! (c) T.Przechlewski 2011 (licencja GPL) http://member.acm.org/~tprzechlewski/sem/
+DA NI=20 NO=209 MA=CM
+
+KM FI=TAM_ff.mtx
+
+! Etykiety miar (podane w kolejnosci w jakiej wystêpuj± w macierzy KM
+LA ; Pu1 Pu2 Pu3 Pu4 Pu5 Eou1 Eou2 Eou3 Eou4 Eou5 Att1 Att2 Att3 Att4 Bi1 Bi2 Bi3 Age Time Zstatus
+
+! Zmiana kolejnosci (przypisanie miar czynnikom X1--X25 --> PU, X3--X21 --> PEOU itd...
+SE ; Pu1 Pu2 Pu3 Pu4 Pu5 Bi1 Bi2 Bi3 Eou1 Eou2 Eou3 Eou4 Eou5 / 
+
+! Okre¶lenie modelu SEM
+MO NX=13 NK=3 LX=FU,FI PH=SY,FR TD=DI,FR
+
+! Etykiety zmiennych Xi
+LK ; PU BI EOU
+
+!FR LX(2,1) LX(3,1) LX(4,1) LX(5,1)            ! PU
+!FR LX(7,2) LX(8,2)                            ! BI
+!FR LX(10,3) LX(11,3) LX(12,3) LX(13,3)        ! EOU
+!
+!VA 1 LX(1,1) LX(6,2) LX(9,3)
+
+! Okre¶lenie zale¿no¶ci miara-czynnik, np LX(2,1) to zale¿no¶æ pomiêdzy drug± miar± i pierwszym czynnikiem:
+FR LX(1,1) LX(2,1) LX(3,1) LX(4,1) LX(5,1)     ! PU
+FR LX(6,2) LX(7,2) LX(8,2)                     ! BI
+FR LX(9,3) LX(10,3) LX(11,3) LX(12,3) LX(13,3) ! EOU
+
+! Identyfikacja modelu pomiaru -- okre¶lenie skali dla ka¿dego czynnika ukrytego
+! poprzez ustalenie wariancji ka¿dej zmiennej ukrytej jako równej 1:
+FI PH(1,1) PH(2,2) PH(3,3)
+VA 1 PH(1,1) PH(2,2) PH(3,3)
+
+
+
+OU ME=ML ND=3 MI RS MR SC AD=200

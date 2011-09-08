@@ -1,0 +1,61 @@
+Modelu RA-SC akceptacji technologii (wersja alternatywna -- bez czynnika 2go stopnia)
+! Por. skrypt tamsc_cfa_final.ls8 zawierajacy CFA stosowanej skali
+! (c) T.Przechlewski 2011 (licencja GPL) http://member.acm.org/~tprzechlewski/sem
+DA NI=30 NO=228 MA=CM
+
+KM FI=Model_TAMSC_00.mtx
+
+LA FI=Model_TAMSC_00.lbl
+
+!          -- RPAT     -- EOU      -- RPAI     -- TC                      -- SC                -- BI       -- RPE         -- PIIT 
+SE  ;     t1 t2 t3   u1 u2 u3    img1 img2   nc1 nc2        sc1 sc2 sc3 sc4 sc5    bi1  bi2  bi3 bi4        e1 e2   pi2  pi3  pi4  /
+
+
+!! MO NX=20 NK=5 LX=FU,FI PH=SY,FR TD=DI,FR !
+MO NY=19 NE=6   NX=5 NK=2  LX=FU,FI LX=FU,FI BE=FU,FI GA=FU,FI PH=SY,FR PS=DI,FR TD=DI,FR TE=DI,FR
+
+! Etykiety zmiennych endogenicznynych (eta)
+LE ; RPAT EOU RPAI TC SC BI 
+
+! Etykiety zmiennych egzogenicznych (ksi)
+LK ; RPAE PIIT
+
+! ** ** **
+
+FR LY(2,1) LY(3,1)                          ! rpat = 3
+FR LY(5,2) LY(6,2)                          ! eou = 3
+FR LY(8,3)                                  ! rpai = 2
+FR LY(10,4)                                 ! tc = 2 
+FR LY(12,5) LY(13,5) LY(14,5) LY(15,5)      ! sc = 5 
+FR LY(17,6) LY(18,6) LY(19,6)               ! bi = 4
+
+FR LX(2,1)                                  ! rpe = 2
+FR LX(4,2) LX(5,2)                          ! piit = 4/3
+
+VA 1 LY(1,1) LY(4,2) LY(7,3) LY(9,4) LY(11,5) LY(16,6)
+VA 1 LX(1,1) LX(3,2)
+
+! ** ** ** ** **
+!FI PS(4,4)
+!VA 1 PS(4,4)
+
+! ** Macierz Gamma **
+FR GA(1,2)  ! piit->rpat
+FR GA(6,2)  ! piit->bi
+FR GA(4,2)  ! piit->tc
+FR GA(6,1)  ! rpae->bi
+FR GA(5,2)  ! piit->sc
+
+! ** Macierz Beta **
+FR BE(6,1) ! rpat->bi
+FR BE(6,2) ! eou->bi
+FR BE(6,3) ! rpai->bi
+
+FR BE(6,5) ! sc->bi
+FR BE(1,5) ! sc->rpat
+FR BE(2,5) ! sc->eou
+
+FR BE(5,4) ! tc->sc
+!!FR BE(3,4) ! tc->rpai
+
+OU ME=ML ND=3 MI RS MR SC XM AD=OFF

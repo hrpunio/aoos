@@ -1,0 +1,33 @@
+CFA dla modelu RA-SC (8 czynnikow). Skale wstepne (26 zmiennych)
+!  (c) T.Przechlewski 2011 (licencja GPL) http://member.acm.org/~tprzechlewski/sem
+DA NI=30 NO=228 MA=CM
+
+KM FI=Model_TAMSC_00.mtx
+
+! Etykiety miar (podane w kolejnosci w jakiej wystêpuj± w macierzy KM
+LA FI=Model_TAMSC_00.lbl
+
+! Zmiana kolejnosci (przypisanie miar czynnikom X1--X25 --> PU, X3--X21 --> PEOU itd...
+! je¿eli nie wszystkie zmienne s± wybrane zakoñcz polecenie SE znakiem `/'
+!  --- RPE     -- RPAT     -- EOU      -- RPAI         -- TC                  -- SC                -- BI                -- PIIT 
+SE ; e1 e2    t1 t2 t3   u1 u2 u3    img1 img2   nc1 nc2 nc3    sc1 sc2 sc3 sc4 sc5    bi1  bi2  bi3 bi4      pi1 pi2  pi3  pi4  /
+
+! Okre¶lenie modelu SEM
+MO NX=26 NK=8 LX=FU,FI PH=SY,FR TD=DI,FR
+
+LK ; RPE RPAT EOU RPAI TC SC BI PIIT 
+
+FR LX(1,1)  LX(2,1)              ! RPAE
+FR LX(3,2)  LX(4,2) LX(5,2)      ! RPAT
+FR LX(6,3)  LX(7,3)   LX(8,3)    ! EOU
+FR LX(9,4)  LX(10,4)             ! RPAI
+FR LX(11,5) LX(12,5)  LX(13,5)   ! TC
+FR LX(14,6) LX(15,6)  LX(16,6) LX(17,6) LX(18,6)   ! SC
+FR LX(19,7) LX(20,7)  LX(21,7) LX(22,7)    ! BI
+FR LX(23,8) LX(24,8)  LX(25,8) LX(26,8)    ! PIIT
+
+FI PH(1,1) PH(2,2) PH(3,3) PH(4,4) PH(5,5) PH(6,6) PH(7,7) PH(8,8)
+VA 1 PH(1,1) PH(2,2) PH(3,3) PH(4,4) PH(5,5) PH(6,6) PH(7,7) PH(8,8)
+
+OU ME=ML ND=3 MI RS MR SC AD=666
+

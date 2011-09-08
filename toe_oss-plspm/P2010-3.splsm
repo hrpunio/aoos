@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--SmartPLS model file-->
+<model>
+  <manifest datacolumn="s7" visible="true" name="s7" x="82" y="512" id="30135543" width="75" height="25" />
+  <manifest datacolumn="s8" visible="true" name="s8" x="105" y="639" id="10891966" width="75" height="25" />
+  <manifest datacolumn="s9" visible="true" name="s9" x="130" y="761" id="20724549" width="75" height="25" />
+  <manifest datacolumn="s2" visible="true" name="s2" x="247" y="82" id="23651369" width="75" height="25" />
+  <manifest datacolumn="s3" visible="true" name="s3" x="91" y="176" id="20548780" width="75" height="25" />
+  <manifest datacolumn="s4" visible="true" name="s4" x="106" y="336" id="2938664" width="75" height="25" />
+  <manifest datacolumn="s13" visible="true" name="s13" x="1042" y="500" id="3753263" width="75" height="25" />
+  <manifest datacolumn="s14" visible="true" name="s14" x="1020" y="346" id="14258807" width="75" height="25" />
+  <manifest datacolumn="ocenaoss" visible="true" name="ocenaoss" x="753" y="230" id="20693770" width="75" height="25" />
+  <manifest datacolumn="s5" visible="true" name="s5" x="865" y="650" id="2390436" width="75" height="25" />
+  <manifest datacolumn="s6" visible="true" name="s6" x="679" y="745" id="104920" width="75" height="25" />
+  <latent visible="true" name="Korzysci" x="240" y="227" id="33038931" width="60" height="74" folded="false" alignment="LEFT" />
+  <latent visible="true" name="Use" x="578" y="325" id="27534070" width="60" height="74" folded="false" alignment="LEFT" />
+  <latent visible="true" name="Koszty" x="309" y="596" id="23715584" width="60" height="74" folded="false" alignment="LEFT" />
+  <latent visible="true" name="Srodowisko" x="898" y="405" id="18883255" width="60" height="74" folded="false" alignment="LEFT" />
+  <latent visible="true" name="KorzysciOrg" x="731" y="597" id="567036" width="60" height="74" folded="false" alignment="LEFT" />
+  <connection visible="true" source="23715584" target="10891966" />
+  <connection visible="true" source="33038931" target="27534070" />
+  <connection visible="true" source="20548780" target="33038931" />
+  <connection visible="true" source="23651369" target="33038931" />
+  <connection visible="true" source="2938664" target="33038931" />
+  <connection visible="true" source="18883255" target="27534070" />
+  <connection visible="true" source="14258807" target="18883255" />
+  <connection visible="true" source="2390436" target="567036" />
+  <connection visible="true" source="23715584" target="30135543" />
+  <connection visible="true" source="23715584" target="20724549" />
+  <connection visible="true" source="104920" target="567036" />
+  <connection visible="true" source="3753263" target="18883255" />
+  <connection visible="true" source="27534070" target="567036" />
+  <connection visible="true" source="23715584" target="27534070" />
+  <connection visible="true" source="27534070" target="20693770" />
+</model>
+

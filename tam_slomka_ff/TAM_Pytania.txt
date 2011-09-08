@@ -1,0 +1,25 @@
+1  Pu1   x U¿ywaj±c FF przyjemniej wykonujê moje zdania
+2  Pu2     U¿ywanie FF zwiêksza kontrolê nad wykonywaniem mojej pracy
+3  Pu3   x U¿ywanie FF pozwala szybciej zakoñczyæ zadanie
+4  Pu4   x FF zwiêksza wydajno¶æ mojej pracy
+5  Pu5     Ogólnie FF jest u¿yteczny w mojej pracy
+
+6  Peou1   Wydaje mi siê, ¿e FF jest niewygodny w u¿yciu           [KO]
+7  Peou2 x £atwo jest nauczyæ siê u¿ywaæ FF
+8  Peou3 x Ustawienie ró¿nych opcji w FF jest frustruj±ce          [KO]
+9  Peou4 x £atwo znajdujê w menu FF wszystko, co jest mi potrzebne
+10 Peou5 x Ogólnie FF jest ³atwy w u¿yciu
+
+11 Att1    Pomys³ aby u¿ywaæ FF jest tragiczny                     [KO]
+12 Att2    Dobrze siê sta³o, ¿e trafi³em na FF    
+13 Att3    Zdecydowanie polecam innym u¿ytkownikom FF
+14 Att4    Nie zamieniê FF na inn± przegl±darkê
+
+15 Ito1  x Zamierzam u¿ywaæ FF ca³y czas
+16 Ito2  x Bêdê u¿ywa³ FF regularnie w przysz³o¶ci
+17 Ito3  x Bêdê czêsto u¿ywa³ FF
+
+18 Age 
+19 Time 
+20 Zstatus (status zawodowy)
+

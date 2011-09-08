@@ -1,0 +1,842 @@
+
+                                DATE:  3/17/2011
+                                  TIME: 11:08
+
+
+                                L I S R E L  8.72
+
+                                       BY
+
+                         Karl G. J”reskog & Dag S”rbom
+
+
+
+                    This program is published exclusively by
+                    Scientific Software International, Inc.
+                       7383 N. Lincoln Avenue, Suite 100
+                        Lincolnwood, IL 60712, U.S.A. 
+            Phone: (800)247-6113, (847)675-0720, Fax: (847)675-2140
+        Copyright by Scientific Software International, Inc., 1981-2005 
+          Use of this program is subject to the terms specified in the
+                        Universal Copyright Convention.
+                          Website: www.ssicentral.com
+
+ The following lines were read from file TAM_ff_cfa_3-0.ls8:
+
+ CFA dla modelu trzech czynnikow (PU, PEOU, BI). Skale wstepne (13 miar)
+ ! (c) T.Przechlewski 2011 (licencja GPL) http://member.acm.org/~tprzechlewski/sem/
+ DA NI=20 NO=209 MA=CM
+  
+ KM FI=TAM_ff.mtx
+  
+ ! Etykiety miar (podane w kolejnosci w jakiej wystêpuj± w macierzy KM
+ LA ; Pu1 Pu2 Pu3 Pu4 Pu5 Eou1 Eou2 Eou3 Eou4 Eou5 Att1 Att2 Att3 Att4 Bi1 Bi2 Bi3 Age Time Zstatus
+  
+ ! Zmiana kolejnosci (przypisanie miar czynnikom X1--X25 --> PU, X3--X21 --> PEOU itd...
+ SE ; Pu1 Pu2 Pu3 Pu4 Pu5 Bi1 Bi2 Bi3 Eou1 Eou2 Eou3 Eou4 Eou5 /
+  
+ ! Okre¶lenie modelu SEM
+ MO NX=13 NK=3 LX=FU,FI PH=SY,FR TD=DI,FR
+  
+ ! Etykiety zmiennych Xi
+ LK ; PU BI EOU
+  
+ !FR LX(2,1) LX(3,1) LX(4,1) LX(5,1)            ! PU
+ !FR LX(7,2) LX(8,2)                            ! BI
+ !FR LX(10,3) LX(11,3) LX(12,3) LX(13,3)        ! EOU
+ !
+ !VA 1 LX(1,1) LX(6,2) LX(9,3)
+  
+ ! Okre¶lenie zale¿no¶ci miara-czynnik, np LX(2,1) to zale¿no¶æ pomiêdzy drug± miar± i pierwszym czynnikiem:
+ FR LX(1,1) LX(2,1) LX(3,1) LX(4,1) LX(5,1)     ! PU
+ FR LX(6,2) LX(7,2) LX(8,2)                     ! BI
+ FR LX(9,3) LX(10,3) LX(11,3) LX(12,3) LX(13,3) ! EOU
+  
+ ! Identyfikacja modelu pomiaru -- okre¶lenie skali dla ka¿dego czynnika ukrytego
+ ! poprzez ustalenie wariancji ka¿dej zmiennej ukrytej jako równej 1:
+ FI PH(1,1) PH(2,2) PH(3,3)
+ VA 1 PH(1,1) PH(2,2) PH(3,3)
+  
+  
+  
+ OU ME=ML ND=3 MI RS MR SC AD=200
+
+ CFA dla modelu trzech czynnikow (PU, PEOU, BI). Skale wstepne (13 miar)        
+
+                           Number of Input Variables 20
+                           Number of Y - Variables    0
+                           Number of X - Variables   13
+                           Number of ETA - Variables  0
+                           Number of KSI - Variables  3
+                           Number of Observations   209
+
+ CFA dla modelu trzech czynnikow (PU, PEOU, BI). Skale wstepne (13 miar)        
+
+         Covariance Matrix       
+
+                 Pu1        Pu2        Pu3        Pu4        Pu5        Bi1   
+            --------   --------   --------   --------   --------   --------
+      Pu1      1.000
+      Pu2      0.153      1.000
+      Pu3      0.261      0.807      1.000
+      Pu4      0.276      0.774      0.925      1.000
+      Pu5      0.142      0.744      0.747      0.787      1.000
+      Bi1      0.126      0.722      0.650      0.645      0.625      1.000
+      Bi2      0.158      0.707      0.694      0.692      0.679      0.891
+      Bi3      0.118      0.740      0.690      0.655      0.699      0.867
+     Eou1     -0.108     -0.455     -0.347     -0.335     -0.368     -0.529
+     Eou2     -0.029      0.380      0.377      0.394      0.458      0.397
+     Eou3     -0.029     -0.204     -0.183     -0.196     -0.230     -0.302
+     Eou4      0.033      0.445      0.442      0.406      0.503      0.478
+     Eou5      0.119      0.532      0.496      0.461      0.516      0.492
+
+         Covariance Matrix       
+
+                 Bi2        Bi3       Eou1       Eou2       Eou3       Eou4   
+            --------   --------   --------   --------   --------   --------
+      Bi2      1.000
+      Bi3      0.847      1.000
+     Eou1     -0.469     -0.516      1.000
+     Eou2      0.401      0.426     -0.387      1.000
+     Eou3     -0.259     -0.263      0.542     -0.413      1.000
+     Eou4      0.461      0.418     -0.405      0.509     -0.380      1.000
+     Eou5      0.455      0.538     -0.582      0.696     -0.519      0.630
+
+         Covariance Matrix       
+
+                Eou5   
+            --------
+     Eou5      1.000
+
+
+ CFA dla modelu trzech czynnikow (PU, PEOU, BI). Skale wstepne (13 miar)        
+
+ Parameter Specifications
+
+         LAMBDA-X    
+
+                  PU         BI        EOU
+            --------   --------   --------
+      Pu1          1          0          0
+      Pu2          2          0          0
+      Pu3          3          0          0
+      Pu4          4          0          0
+      Pu5          5          0          0
+      Bi1          0          6          0
+      Bi2          0          7          0
+      Bi3          0          8          0
+     Eou1          0          0          9
+     Eou2          0          0         10
+     Eou3          0          0         11
+     Eou4          0          0         12
+     Eou5          0          0         13
+
+         PHI         
+
+                  PU         BI        EOU
+            --------   --------   --------
+       PU          0
+       BI         14          0
+      EOU         15         16          0
+
+         THETA-DELTA 
+
+                 Pu1        Pu2        Pu3        Pu4        Pu5        Bi1
+            --------   --------   --------   --------   --------   --------
+                  17         18         19         20         21         22
+
+         THETA-DELTA 
+
+                 Bi2        Bi3       Eou1       Eou2       Eou3       Eou4
+            --------   --------   --------   --------   --------   --------
+                  23         24         25         26         27         28
+
+         THETA-DELTA 
+
+                Eou5
+            --------
+                  29
+ 
+
+
+ CFA dla modelu trzech czynnikow (PU, PEOU, BI). Skale wstepne (13 miar)        
+
+ Number of Iterations = 14
+
+ LISREL Estimates (Maximum Likelihood)                           
+
+         LAMBDA-X    
+
+                  PU         BI        EOU   
+            --------   --------   --------
+      Pu1      0.259       - -        - - 
+             (0.069)
+               3.729
+ 
+      Pu2      0.843       - -        - - 
+             (0.056)
+              15.003
+ 
+      Pu3      0.957       - -        - - 
+             (0.051)
+              18.609
+ 
+      Pu4      0.955       - -        - - 
+             (0.052)
+              18.507
+ 
+      Pu5      0.816       - -        - - 
+             (0.057)
+              14.263
+ 
+      Bi1       - -       0.945       - - 
+                        (0.052)
+                         18.139
+ 
+      Bi2       - -       0.937       - - 
+                        (0.052)
+                         17.844
+ 
+      Bi3       - -       0.916       - - 
+                        (0.053)
+                         17.148
+ 
+     Eou1       - -        - -       0.647
+                                   (0.065)
+                                     9.994
+ 
+     Eou2       - -        - -      -0.738
+                                   (0.062)
+                                   -11.885
+ 
+     Eou3       - -        - -       0.579
+                                   (0.066)
+                                     8.715
+ 
+     Eou4       - -        - -      -0.691
+                                   (0.063)
+                                   -10.898
+ 
+     Eou5       - -        - -      -0.913
+                                   (0.056)
+                                   -16.210
+ 
+
+         PHI         
+
+                  PU         BI        EOU   
+            --------   --------   --------
+       PU      1.000
+ 
+       BI      0.774      1.000
+             (0.031)
+              24.987
+ 
+      EOU     -0.572     -0.611      1.000
+             (0.052)    (0.050)
+             -10.914    -12.292
+ 
+
+         THETA-DELTA 
+
+                 Pu1        Pu2        Pu3        Pu4        Pu5        Bi1   
+            --------   --------   --------   --------   --------   --------
+               0.933      0.289      0.083      0.089      0.334      0.106
+             (0.092)    (0.031)    (0.015)    (0.015)    (0.035)    (0.018)
+              10.171      9.250      5.530      5.789      9.434      6.033
+ 
+
+         THETA-DELTA 
+
+                 Bi2        Bi3       Eou1       Eou2       Eou3       Eou4   
+            --------   --------   --------   --------   --------   --------
+               0.123      0.162      0.582      0.456      0.665      0.522
+             (0.019)    (0.021)    (0.062)    (0.053)    (0.069)    (0.058)
+               6.620      7.668      9.323      8.671      9.597      9.060
+ 
+
+         THETA-DELTA 
+
+                Eou5   
+            --------
+               0.167
+             (0.039)
+               4.322
+ 
+
+         Squared Multiple Correlations for X - Variables         
+
+                 Pu1        Pu2        Pu3        Pu4        Pu5        Bi1   
+            --------   --------   --------   --------   --------   --------
+               0.067      0.711      0.917      0.911      0.666      0.894
+
+         Squared Multiple Correlations for X - Variables         
+
+                 Bi2        Bi3       Eou1       Eou2       Eou3       Eou4   
+            --------   --------   --------   --------   --------   --------
+               0.877      0.838      0.418      0.544      0.335      0.478
+
+         Squared Multiple Correlations for X - Variables         
+
+                Eou5   
+            --------
+               0.833
+
+
+                           Goodness of Fit Statistics
+
+                             Degrees of Freedom = 62
+               Minimum Fit Function Chi-Square = 237.905 (P = 0.0)
+       Normal Theory Weighted Least Squares Chi-Square = 230.618 (P = 0.0)
+                Estimated Non-centrality Parameter (NCP) = 168.618
+           90 Percent Confidence Interval for NCP = (125.875 ; 218.942)
+ 
+                        Minimum Fit Function Value = 1.144
+                Population Discrepancy Function Value (F0) = 0.811
+             90 Percent Confidence Interval for F0 = (0.605 ; 1.053)
+             Root Mean Square Error of Approximation (RMSEA) = 0.114
+           90 Percent Confidence Interval for RMSEA = (0.0988 ; 0.130)
+               P-Value for Test of Close Fit (RMSEA < 0.05) = 0.000
+ 
+                  Expected Cross-Validation Index (ECVI) = 1.388
+            90 Percent Confidence Interval for ECVI = (1.182 ; 1.630)
+                         ECVI for Saturated Model = 0.875
+                       ECVI for Independence Model = 20.841
+ 
+     Chi-Square for Independence Model with 78 Degrees of Freedom = 4308.928
+                           Independence AIC = 4334.928
+                               Model AIC = 288.618
+                             Saturated AIC = 182.000
+                           Independence CAIC = 4391.379
+                               Model CAIC = 414.545
+                             Saturated CAIC = 577.152
+ 
+                          Normed Fit Index (NFI) = 0.945
+                       Non-Normed Fit Index (NNFI) = 0.948
+                    Parsimony Normed Fit Index (PNFI) = 0.751
+                       Comparative Fit Index (CFI) = 0.958
+                       Incremental Fit Index (IFI) = 0.959
+                         Relative Fit Index (RFI) = 0.931
+ 
+                             Critical N (CN) = 80.389
+ 
+ 
+                     Root Mean Square Residual (RMR) = 0.0659
+                            Standardized RMR = 0.0659
+                       Goodness of Fit Index (GFI) = 0.854
+                  Adjusted Goodness of Fit Index (AGFI) = 0.786
+                  Parsimony Goodness of Fit Index (PGFI) = 0.582
+
+ CFA dla modelu trzech czynnikow (PU, PEOU, BI). Skale wstepne (13 miar)        
+
+         Fitted Covariance Matrix
+
+                 Pu1        Pu2        Pu3        Pu4        Pu5        Bi1   
+            --------   --------   --------   --------   --------   --------
+      Pu1      1.000
+      Pu2      0.218      1.000
+      Pu3      0.248      0.807      1.000
+      Pu4      0.247      0.805      0.914      1.000
+      Pu5      0.211      0.688      0.781      0.779      1.000
+      Bi1      0.189      0.617      0.700      0.698      0.597      1.000
+      Bi2      0.187      0.611      0.694      0.692      0.592      0.885
+      Bi3      0.183      0.597      0.678      0.676      0.578      0.865
+     Eou1     -0.096     -0.312     -0.354     -0.353     -0.302     -0.373
+     Eou2      0.109      0.356      0.404      0.403      0.344      0.426
+     Eou3     -0.086     -0.279     -0.317     -0.316     -0.270     -0.334
+     Eou4      0.102      0.333      0.379      0.378      0.323      0.399
+     Eou5      0.135      0.440      0.500      0.498      0.426      0.527
+
+         Fitted Covariance Matrix
+
+                 Bi2        Bi3       Eou1       Eou2       Eou3       Eou4   
+            --------   --------   --------   --------   --------   --------
+      Bi2      1.000
+      Bi3      0.858      1.000
+     Eou1     -0.370     -0.361      1.000
+     Eou2      0.422      0.412     -0.477      1.000
+     Eou3     -0.331     -0.324      0.374     -0.427      1.000
+     Eou4      0.395      0.386     -0.447      0.510     -0.400      1.000
+     Eou5      0.522      0.510     -0.590      0.673     -0.528      0.631
+
+         Fitted Covariance Matrix
+
+                Eou5   
+            --------
+     Eou5      1.000
+
+         Fitted Residuals
+
+                 Pu1        Pu2        Pu3        Pu4        Pu5        Bi1   
+            --------   --------   --------   --------   --------   --------
+      Pu1      0.000
+      Pu2     -0.066      0.000
+      Pu3      0.013      0.000      0.000
+      Pu4      0.029     -0.031      0.011      0.000
+      Pu5     -0.069      0.055     -0.034      0.008      0.000
+      Bi1     -0.063      0.105     -0.050     -0.053      0.028      0.000
+      Bi2     -0.030      0.096      0.000      0.000      0.087      0.005
+      Bi3     -0.066      0.142      0.011     -0.021      0.121      0.002
+     Eou1     -0.012     -0.143      0.007      0.018     -0.066     -0.156
+     Eou2     -0.138      0.024     -0.027     -0.009      0.114     -0.028
+     Eou3      0.057      0.076      0.134      0.120      0.041      0.032
+     Eou4     -0.069      0.111      0.064      0.028      0.180      0.079
+     Eou5     -0.016      0.092     -0.004     -0.037      0.090     -0.035
+
+         Fitted Residuals
+
+                 Bi2        Bi3       Eou1       Eou2       Eou3       Eou4   
+            --------   --------   --------   --------   --------   --------
+      Bi2      0.000
+      Bi3     -0.010      0.000
+     Eou1     -0.099     -0.155      0.000
+     Eou2     -0.021      0.014      0.090      0.000
+     Eou3      0.072      0.061      0.168      0.014      0.000
+     Eou4      0.065      0.032      0.042     -0.001      0.020      0.000
+     Eou5     -0.067      0.028      0.008      0.023      0.009     -0.001
+
+         Fitted Residuals
+
+                Eou5   
+            --------
+     Eou5      0.000
+
+ Summary Statistics for Fitted Residuals
+
+ Smallest Fitted Residual =   -0.156
+   Median Fitted Residual =    0.000
+  Largest Fitted Residual =    0.180
+
+ Stemleaf Plot
+
+ - 1|65 
+ - 1|440 
+ - 0|777777655 
+ - 0|433333322211100000000000000000000 
+   0|1111111111222233333344 
+   0|666677889999 
+   1|00112234 
+   1|78
+
+         Standardized Residuals  
+
+                 Pu1        Pu2        Pu3        Pu4        Pu5        Bi1   
+            --------   --------   --------   --------   --------   --------
+      Pu1       - - 
+      Pu2     -1.914       - - 
+      Pu3      0.897     -0.073       - - 
+      Pu4      1.882     -4.642      6.774       - - 
+      Pu5     -1.867      2.851     -4.716      1.018       - - 
+      Bi1     -1.414      4.184     -3.684     -3.768      1.030       - - 
+      Bi2     -0.658      3.727     -0.013     -0.023      3.170      2.186
+      Bi3     -1.412      5.183      0.662     -1.195      4.140      0.497
+     Eou1     -0.191     -3.012      0.162      0.422     -1.349     -3.841
+     Eou2     -2.260      0.554     -0.763     -0.247      2.544     -0.810
+     Eou3      0.892      1.505      2.971      2.664      0.792      0.725
+     Eou4     -1.119      2.443      1.636      0.719      3.837      2.083
+     Eou5     -0.288      2.874     -0.223     -2.012      2.623     -1.888
+
+         Standardized Residuals  
+
+                 Bi2        Bi3       Eou1       Eou2       Eou3       Eou4   
+            --------   --------   --------   --------   --------   --------
+      Bi2       - - 
+      Bi3     -2.510       - - 
+     Eou1     -2.412     -3.656       - - 
+     Eou2     -0.584      0.367      2.994       - - 
+     Eou3      1.619      1.339      4.268      0.421       - - 
+     Eou4      1.693      0.797      1.270     -0.052      0.557       - - 
+     Eou5     -3.361      1.224      0.692      2.786      0.692     -0.085
+
+         Standardized Residuals  
+
+                Eou5   
+            --------
+     Eou5       - - 
+
+ Summary Statistics for Standardized Residuals
+
+ Smallest Standardized Residual =   -4.716
+   Median Standardized Residual =    0.000
+  Largest Standardized Residual =    6.774
+
+ Stemleaf Plot
+
+ - 4|76 
+ - 2|8877405430 
+ - 0|9994432188763222111000000000000000 
+   0|24445667777788990023356679 
+   2|12456789900278 
+   4|1232 
+   6|8
+ Largest Negative Standardized Residuals
+ Residual for      Pu4 and      Pu2  -4.642
+ Residual for      Pu5 and      Pu3  -4.716
+ Residual for      Bi1 and      Pu3  -3.684
+ Residual for      Bi1 and      Pu4  -3.768
+ Residual for     Eou1 and      Pu2  -3.012
+ Residual for     Eou1 and      Bi1  -3.841
+ Residual for     Eou1 and      Bi3  -3.656
+ Residual for     Eou5 and      Bi2  -3.361
+ Largest Positive Standardized Residuals
+ Residual for      Pu4 and      Pu3   6.774
+ Residual for      Pu5 and      Pu2   2.851
+ Residual for      Bi1 and      Pu2   4.184
+ Residual for      Bi2 and      Pu2   3.727
+ Residual for      Bi2 and      Pu5   3.170
+ Residual for      Bi3 and      Pu2   5.183
+ Residual for      Bi3 and      Pu5   4.140
+ Residual for     Eou2 and     Eou1   2.994
+ Residual for     Eou3 and      Pu3   2.971
+ Residual for     Eou3 and      Pu4   2.664
+ Residual for     Eou3 and     Eou1   4.268
+ Residual for     Eou4 and      Pu5   3.837
+ Residual for     Eou5 and      Pu2   2.874
+ Residual for     Eou5 and      Pu5   2.623
+ Residual for     Eou5 and     Eou2   2.786
+
+ CFA dla modelu trzech czynnikow (PU, PEOU, BI). Skale wstepne (13 miar)        
+
+                         Qplot of Standardized Residuals
+
+  3.5..........................................................................
+     .                                                                       ..
+     .                                                                      . .
+     .                                                                    .   .
+     .                                                                  .     .
+     .                                                                 .      .
+     .                                                               .        .
+     .                                                             .          .
+     .                                                            .           x
+     .                                                          .             .
+     .                                                        .               x
+     .                                                       .                x
+     .                                                     .                  x
+     .                                                   .                    x
+     .                                                  .                     *
+ N   .                                                .                 xx x  .
+ o   .                                              .                  x      .
+ r   .                                             .               xx*        .
+ m   .                                           .         x x xx             .
+ a   .                                         .       x xxx                  .
+ l   .                                        .    x* xx                      .
+     .                                      .    x*x                          .
+ Q   .                                    .    xxx                            .
+ u   .                                   .   x**                              .
+ a   .                                 . x x                                  .
+ n   .                               . x *                                    .
+ t   .                            x*. x                                       .
+ i   .                     x xx  x.                                           .
+ l   .                *    *    .                                             .
+ e   .            x  xx        .                                              .
+ s   .    x    xx            .                                                .
+     xx                    .                                                  .
+     x                    .                                                   .
+     x                  .                                                     .
+     x                .                                                       .
+     x               .                                                        .
+     .             .                                                          .
+     x           .                                                            .
+     .          .                                                             .
+     .        .                                                               .
+     .      .                                                                 .
+     .     .                                                                  .
+     .   .                                                                    .
+     . .                                                                      .
+ -3.5..........................................................................
+   -3.5                                                                      3.5
+                             Standardized Residuals
+
+ CFA dla modelu trzech czynnikow (PU, PEOU, BI). Skale wstepne (13 miar)        
+
+ Modification Indices and Expected Change
+
+         Modification Indices for LAMBDA-X       
+
+                  PU         BI        EOU   
+            --------   --------   --------
+      Pu1       - -       1.690      0.904
+      Pu2       - -      27.519     10.518
+      Pu3       - -       4.256      1.130
+      Pu4       - -       9.297      7.667
+      Pu5       - -      10.099     12.159
+      Bi1      8.710       - -       0.000
+      Bi2      2.348       - -       3.527
+      Bi3      2.500       - -       4.100
+     Eou1      0.245     12.514       - - 
+     Eou2      0.018      0.221       - - 
+     Eou3      7.467      2.138       - - 
+     Eou4      3.444      3.510       - - 
+     Eou5      0.001      5.687       - - 
+
+         Expected Change for LAMBDA-X    
+
+                  PU         BI        EOU   
+            --------   --------   --------
+      Pu1       - -      -0.149      0.085
+      Pu2       - -       0.356     -0.170
+      Pu3       - -      -0.102      0.039
+      Pu4       - -      -0.152      0.101
+      Pu5       - -       0.229     -0.194
+      Bi1     -0.160       - -      -0.001
+      Bi2      0.084       - -       0.081
+      Bi3      0.090       - -      -0.092
+     Eou1     -0.036     -0.270       - - 
+     Eou2     -0.009     -0.033       - - 
+     Eou3      0.207      0.117       - - 
+     Eou4      0.130      0.138       - - 
+     Eou5     -0.002     -0.162       - - 
+
+         Standardized Expected Change for LAMBDA-X       
+
+                  PU         BI        EOU   
+            --------   --------   --------
+      Pu1       - -      -0.149      0.085
+      Pu2       - -       0.356     -0.170
+      Pu3       - -      -0.102      0.039
+      Pu4       - -      -0.152      0.101
+      Pu5       - -       0.229     -0.194
+      Bi1     -0.160       - -      -0.001
+      Bi2      0.084       - -       0.081
+      Bi3      0.090       - -      -0.092
+     Eou1     -0.036     -0.270       - - 
+     Eou2     -0.009     -0.033       - - 
+     Eou3      0.207      0.117       - - 
+     Eou4      0.130      0.138       - - 
+     Eou5     -0.002     -0.162       - - 
+
+         Completely Standardized Expected Change for LAMBDA-X    
+
+                  PU         BI        EOU   
+            --------   --------   --------
+      Pu1       - -      -0.149      0.085
+      Pu2       - -       0.356     -0.170
+      Pu3       - -      -0.102      0.039
+      Pu4       - -      -0.152      0.101
+      Pu5       - -       0.229     -0.194
+      Bi1     -0.160       - -      -0.001
+      Bi2      0.084       - -       0.081
+      Bi3      0.090       - -      -0.092
+     Eou1     -0.036     -0.270       - - 
+     Eou2     -0.009     -0.033       - - 
+     Eou3      0.207      0.117       - - 
+     Eou4      0.130      0.138       - - 
+     Eou5     -0.002     -0.162       - - 
+
+ No Non-Zero Modification Indices for PHI         
+
+         Modification Indices for THETA-DELTA    
+
+                 Pu1        Pu2        Pu3        Pu4        Pu5        Bi1   
+            --------   --------   --------   --------   --------   --------
+      Pu1       - - 
+      Pu2      3.663       - - 
+      Pu3      0.804      0.005       - - 
+      Pu4      3.541     21.544     45.884       - - 
+      Pu5      3.484      8.126     22.241      1.035       - - 
+      Bi1      0.211      8.247      3.804      0.136      2.700       - - 
+      Bi2      0.477      3.230      0.007      3.086      0.447      4.779
+      Bi3      1.085      4.127      1.237      9.283      7.845      0.247
+     Eou1      0.594      7.507      2.320      1.529      0.267      6.185
+     Eou2      5.757      2.512      2.121      3.384      3.134      1.661
+     Eou3      0.000      1.004      1.799      0.411      0.025      2.661
+     Eou4      1.356      0.029      0.548      1.339      4.481      2.273
+     Eou5      2.002      1.852      2.513      2.385      0.012      2.689
+
+         Modification Indices for THETA-DELTA    
+
+                 Bi2        Bi3       Eou1       Eou2       Eou3       Eou4   
+            --------   --------   --------   --------   --------   --------
+      Bi2       - - 
+      Bi3      6.302       - - 
+     Eou1      0.147      0.574       - - 
+     Eou2      0.857      0.008      8.962       - - 
+     Eou3      0.015      1.940     18.212      0.178       - - 
+     Eou4      2.844      8.875      1.614      0.003      0.310       - - 
+     Eou5      8.429      9.906      0.479      7.765      0.480      0.007
+
+         Modification Indices for THETA-DELTA    
+
+                Eou5   
+            --------
+     Eou5       - - 
+
+         Expected Change for THETA-DELTA 
+
+                 Pu1        Pu2        Pu3        Pu4        Pu5        Bi1   
+            --------   --------   --------   --------   --------   --------
+      Pu1       - - 
+      Pu2     -0.072       - - 
+      Pu3      0.023     -0.001       - - 
+      Pu4      0.048     -0.085      0.152       - - 
+      Pu5     -0.075      0.068     -0.087      0.019       - - 
+      Bi1     -0.013      0.046     -0.021     -0.004     -0.028       - - 
+      Bi2      0.019     -0.030     -0.001      0.019      0.012      0.058
+      Bi3     -0.032      0.036      0.013     -0.036      0.053      0.012
+     Eou1     -0.041     -0.085      0.031      0.025      0.017     -0.056
+     Eou2     -0.116     -0.045     -0.027      0.034      0.053     -0.026
+     Eou3      0.000      0.033      0.029     -0.014      0.006     -0.039
+     Eou4     -0.059     -0.005      0.014     -0.023      0.067      0.032
+     Eou5      0.055      0.031      0.024     -0.023     -0.003     -0.027
+
+         Expected Change for THETA-DELTA 
+
+                 Bi2        Bi3       Eou1       Eou2       Eou3       Eou4   
+            --------   --------   --------   --------   --------   --------
+      Bi2       - - 
+      Bi3     -0.060       - - 
+     Eou1      0.009     -0.019       - - 
+     Eou2      0.019      0.002      0.127       - - 
+     Eou3      0.003      0.037      0.201      0.018       - - 
+     Eou4      0.037     -0.071      0.056     -0.002      0.025       - - 
+     Eou5     -0.049      0.058      0.029      0.123      0.028     -0.004
+
+         Expected Change for THETA-DELTA 
+
+                Eou5   
+            --------
+     Eou5       - - 
+
+         Completely Standardized Expected Change for THETA-DELTA 
+
+                 Pu1        Pu2        Pu3        Pu4        Pu5        Bi1   
+            --------   --------   --------   --------   --------   --------
+      Pu1       - - 
+      Pu2     -0.072       - - 
+      Pu3      0.023     -0.001       - - 
+      Pu4      0.048     -0.085      0.152       - - 
+      Pu5     -0.075      0.068     -0.087      0.019       - - 
+      Bi1     -0.013      0.046     -0.021     -0.004     -0.028       - - 
+      Bi2      0.019     -0.030     -0.001      0.019      0.012      0.058
+      Bi3     -0.032      0.036      0.013     -0.036      0.053      0.012
+     Eou1     -0.041     -0.085      0.031      0.025      0.017     -0.056
+     Eou2     -0.116     -0.045     -0.027      0.034      0.053     -0.026
+     Eou3      0.000      0.033      0.029     -0.014      0.006     -0.039
+     Eou4     -0.059     -0.005      0.014     -0.023      0.067      0.032
+     Eou5      0.055      0.031      0.024     -0.023     -0.003     -0.027
+
+         Completely Standardized Expected Change for THETA-DELTA 
+
+                 Bi2        Bi3       Eou1       Eou2       Eou3       Eou4   
+            --------   --------   --------   --------   --------   --------
+      Bi2       - - 
+      Bi3     -0.060       - - 
+     Eou1      0.009     -0.019       - - 
+     Eou2      0.019      0.002      0.127       - - 
+     Eou3      0.003      0.037      0.201      0.018       - - 
+     Eou4      0.037     -0.071      0.056     -0.002      0.025       - - 
+     Eou5     -0.049      0.058      0.029      0.123      0.028     -0.004
+
+         Completely Standardized Expected Change for THETA-DELTA 
+
+                Eou5   
+            --------
+     Eou5       - - 
+
+ Maximum Modification Index is   45.88 for Element ( 4, 3) of THETA-DELTA
+
+ CFA dla modelu trzech czynnikow (PU, PEOU, BI). Skale wstepne (13 miar)        
+
+ Covariances
+
+         X - KSI 
+
+                 Pu1        Pu2        Pu3        Pu4        Pu5        Bi1   
+            --------   --------   --------   --------   --------   --------
+       PU      0.259      0.843      0.957      0.955      0.816      0.732
+       BI      0.200      0.653      0.741      0.739      0.632      0.945
+      EOU     -0.148     -0.482     -0.548     -0.546     -0.467     -0.577
+
+         X - KSI 
+
+                 Bi2        Bi3       Eou1       Eou2       Eou3       Eou4   
+            --------   --------   --------   --------   --------   --------
+       PU      0.725      0.708     -0.370      0.422     -0.331      0.395
+       BI      0.937      0.916     -0.395      0.450     -0.353      0.422
+      EOU     -0.572     -0.559      0.647     -0.738      0.579     -0.691
+
+         X - KSI 
+
+                Eou5   
+            --------
+       PU      0.522
+       BI      0.557
+      EOU     -0.913
+
+ CFA dla modelu trzech czynnikow (PU, PEOU, BI). Skale wstepne (13 miar)        
+
+ Standardized Solution           
+
+         LAMBDA-X    
+
+                  PU         BI        EOU   
+            --------   --------   --------
+      Pu1      0.259       - -        - - 
+      Pu2      0.843       - -        - - 
+      Pu3      0.957       - -        - - 
+      Pu4      0.955       - -        - - 
+      Pu5      0.816       - -        - - 
+      Bi1       - -       0.945       - - 
+      Bi2       - -       0.937       - - 
+      Bi3       - -       0.916       - - 
+     Eou1       - -        - -       0.647
+     Eou2       - -        - -      -0.738
+     Eou3       - -        - -       0.579
+     Eou4       - -        - -      -0.691
+     Eou5       - -        - -      -0.913
+
+         PHI                                     
+
+                  PU         BI        EOU   
+            --------   --------   --------
+       PU      1.000
+       BI      0.774      1.000
+      EOU     -0.572     -0.611      1.000
+
+ CFA dla modelu trzech czynnikow (PU, PEOU, BI). Skale wstepne (13 miar)        
+
+ Completely Standardized Solution
+
+         LAMBDA-X    
+
+                  PU         BI        EOU   
+            --------   --------   --------
+      Pu1      0.259       - -        - - 
+      Pu2      0.843       - -        - - 
+      Pu3      0.957       - -        - - 
+      Pu4      0.955       - -        - - 
+      Pu5      0.816       - -        - - 
+      Bi1       - -       0.945       - - 
+      Bi2       - -       0.937       - - 
+      Bi3       - -       0.916       - - 
+     Eou1       - -        - -       0.647
+     Eou2       - -        - -      -0.738
+     Eou3       - -        - -       0.579
+     Eou4       - -        - -      -0.691
+     Eou5       - -        - -      -0.913
+
+         PHI                                     
+
+                  PU         BI        EOU   
+            --------   --------   --------
+       PU      1.000
+       BI      0.774      1.000
+      EOU     -0.572     -0.611      1.000
+
+         THETA-DELTA 
+
+                 Pu1        Pu2        Pu3        Pu4        Pu5        Bi1   
+            --------   --------   --------   --------   --------   --------
+               0.933      0.289      0.083      0.089      0.334      0.106
+
+         THETA-DELTA 
+
+                 Bi2        Bi3       Eou1       Eou2       Eou3       Eou4   
+            --------   --------   --------   --------   --------   --------
+               0.123      0.162      0.582      0.456      0.665      0.522
+
+         THETA-DELTA 
+
+                Eou5   
+            --------
+               0.167

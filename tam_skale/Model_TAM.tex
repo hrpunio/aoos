@@ -1,0 +1,82 @@
+% (c) T. Przechlewski, 2011; licencja GPL
+\documentclass{article}
+\usepackage{polski}
+\usepackage{natbib,graphicx}
+\usepackage[latin2]{inputenc}
+\newcommand{\FFx}{\acro{FF}} %% Oznacza FireFoksa
+\newcommand\factor[1]{\acro{#1}}
+\DeclareRobustCommand\acro[1]{\ifx \f@series \BFseriesCode #1\else\textsc{\lowercase{#1}}\fi}
+\title{Proponowane skale modelu akceptacji technologii~\citep{DavisetAl1989}}
+\author{Tomasz Przechlewski}
+\date{2011}
+\begin{document}
+\maketitle
+
+\section{Model TAM}
+
+Pe³ny model \acro{TAM}~\citep{DavisetAl1989} przedstawiono 
+na rys.~\ref{r:TAM}. Skale dotycz± trzech sk³adników
+\factor{PU}, \factor{PEOU} oraz \factor{BI}.
+
+\begin{figure}[!htb] \centering
+\includegraphics[width=.9\textwidth]{TAM-pl-ALT.pdf}
+\caption{Model TAM \citep{DavisetAl1989}\label{r:TAM}}
+\end{figure}
+
+\section{Skale pomiarowe czynników PU, PEOU, BI}
+
+\begin{description}
+\item[PU:] Postrzegana u¿yteczno¶æ
+\begin{enumerate}
+\item U¿ywaj±c {\FFx} pracujê szybciej (\acro{pu1});
+\item Dziêki {\FFx} moja praca jest bardziej sprawna (\acro{pu2});
+\item {\FFx} jest u¿yteczny/przydatny (\acro{pu3});
+\item Dziêki {\FFx} pracujê szybciej, %%jestem w stanie 
+ mogê zrobiæ wiêcej w~tym samym czasie 
+ i~pope³niam mniej b³êdów (\acro{pu4});
+\item Moja praca jest wydajniejsza je¿eli korzystam z~{\FFx} (\acro{pu5}).
+\end{enumerate}
+ %%
+\item[PEOU:] Postrzegana ³atwo¶æ u¿ywania
+\begin{enumerate}
+\item Komunikacja pomiêdzy {\FFx} a~u¿ytkownikiem jest jasna i~zrozumia³a (\acro{eu1});
+\item Pos³uguj±c siê {\FFx} ³atwo osi±gam to co zamierza³em osi±gn±æ (\acro{eu2});
+\item £atwo jest posi±¶æ bieg³± znajomo¶æ {\FFx} (\acro{eu3});
+%%10. Sprawne pos³ugiwanie siê FF jest skomplikowane i wymaga czasu ; Gallego/Luna/Bueno 2007 ; [R]
+\item Jestem/by³em w stanie szybko nauczyæ siê jak u¿ywaæ {\FFx} (\acro{eu4});
+\item {\FFx} jest prosty/³atwy (\acro{eu5}).
+\end{enumerate}
+ %%
+\item[BI:] Zamiar wykorzystania (w~ca³o¶ci 
+jest adaptacj± odpowiedniej skali z~modelu {UTAUT}~\citep{VenkateshEtAl03})
+\begin{enumerate}
+\item Zamierzam u¿ywaæ {\FFx} przez najbli¿sze 12~miesiêcy (\acro{BI1});
+\item Przewidujê, ¿e  bêdê u¿ywa³ {\FFx} przez najbli¿sze 12~miesiêcy (\acro{BI2}); 
+\item Planujê u¿ywaæ {\FFx} przez najbli¿sze 12~miesiêcy (\acro{BI3}).
+\end{enumerate}
+\end{description}
+
+\begin{thebibliography}{}
+
+\bibitem[Davis i~inni(1989)]{DavisetAl1989}
+Davis, F.~D., Bagozzi, R.~P., i Warshaw, P.~R. (1989).
+User acceptance of computer technology: a comparison of two theoretical models.
+{\em Decision Sciences}, 35(8):982--1003.
+
+\bibitem[Venkatesh i~inni(2003)]{VenkateshEtAl03}
+Venkatesh, V., Morris, M.~G., Davis, G.~B., , i Davis, F.~D. (2003).
+User acceptance of information technology: Toward a unified view.
+{\em MIS Quarterly}, 27(3):425--478.
+
+\end{thebibliography}
+
+\end{document}
+
+% Local Variables:
+% TeX-master: ""
+% mode: latex
+% coding: iso-8859-2
+% ispell-local-dictionary: "polish"
+% LocalWords:
+% LocalWords:
+% End:

@@ -1,0 +1,32 @@
+!! Skale dla serwerów
+
+DA NI=42 NO=216 MA=CM
+
+KM FI=badanie_toe.mtx
+
+! Etykiety miar (podane w kolejnosci w jakiej wystêpuj± w macierzy KM
+! s2 d2 s3 d3 s4 d4 s5 d5 s6 d6 s7 d7 s8 d8 s9 d9 s10 d10 s11 d11 s12 d12 s13 d13 s14 d14 p23 p24 lkomp p25b p26 p27 p3 ocenaoss p5 p6 p7 p8 s1 d1 zoss llkomp
+LA fi=badanie_toe.lbl
+
+! Zmiana kolejnosci (przypisanie miar czynnikom X1--X25 --> PU, X3--X21 --> PEOU itd...
+! je¿eli nie wszystkie zmienne s± wybrane zakoñcz polecenie SE znakiem `/'
+!       korzbzp     koszty     korzysci    sat        zlozonosc
+SE ;    s2 s3       s7 s8      s4 s6       s11 s12    p27 llkomp /
+
+! Okre¶lenie modelu SEM
+MO NX=10 NK=5 LX=FU,FI PH=SY,FR TD=DI,FR
+
+LK ; korzbzp koszty korzysci satysfakcja zlozo
+
+FR LX(2,1)     ! korzbzp
+FR LX(4,2)     ! korzbzp
+FR LX(6,3)     ! korzysci
+FR LX(8,4)     ! sat 
+FR LX(10,5)    ! zlozo
+
+VA 1 LX(1,1) LX(3,2) LX(5,3) LX(7,4) LX(9,5);
+
+ST .5 ALL
+
+!OU ME=ML ND=3 MI RS MR SC AD=200
+OU ME=ML ND=3 MI RS MR SC AD=OFF IT=500

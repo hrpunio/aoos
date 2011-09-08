@@ -1,0 +1,39 @@
+Model TAM CFA dla trzech czynnikow (PU, PEOU BI). 
+! Por. skrypt Model_TAM_CFA_f.ls8 zawierajacy CFA stosowanej skali
+! (c) T.Przechlewski 2011 (licencja GPL) http://member.acm.org/~tprzechlewski/sem/
+
+DA NI=14 NO=192 MA=CM
+
+KM FI=Model_TAM.mtx
+
+! Etykiety miar (podane w kolejnosci w jakiej wystêpuj± w macierzy KM)
+LA FI=Model_TAM.lbl
+
+! Zmiana kolejnosci (przypisanie miar czynnikom) je¿eli nie wszystkie zmienne 
+! s± wybrane zakoñcz polecenie SE znakiem `/'
+! Zmienne endogeniczne (y-ki) na pocz±tku
+!    ---- PU ------     --- BI -------   --- PEOU  ---------
+SE ; pu1 pu2 pu3 pu5    bi1 bi2 bi3      eu1 eu2 eu3 eu4 eu5 /
+
+MO NY=7 NE=2 NX=5 NK=1 LX=FU,FI LX=FU,FI BE=FU,FI GA=FU,FI PH=SY,FR PS=DI,FR TD=DI,FR TE=DI,FR
+
+! Etykiety zmiennych endogenicznynych, eta
+LE ; PU BI
+
+! Etykiety zmiennych egzogenicznych, ksi
+LK ; PEOU
+
+FR LX(2,1) LX(3,1) LX(4,1) LX(5,1) ! PEOU
+
+FR LY(2,1) LY(3,1) LY(4,1)         ! PU
+FR LY(6,2) LY(7,2)                 ! ITU 
+
+VA 1 LX(1,1) 
+VA 1 LY(1,1) LY(5,2)
+
+! czesc strukturalna
+FR GA(1,1) ! PEOU->PU
+FR GA(2,1) ! PEOU->BI
+FR BE(2,1) ! PU-BI
+
+OU ME=ML ND=3 MI RS MR SC XM AD=200

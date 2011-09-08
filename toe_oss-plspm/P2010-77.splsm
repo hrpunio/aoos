@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--SmartPLS model file-->
+<model>
+  <manifest datacolumn="s7" visible="true" name="s7" x="75" y="280" id="9950192" width="75" height="25" />
+  <manifest datacolumn="s2" visible="true" name="s2" x="136" y="150" id="4113761" width="75" height="25" />
+  <manifest datacolumn="s3" visible="true" name="s3" x="136" y="185" id="4040784" width="75" height="25" />
+  <manifest datacolumn="s11" visible="true" name="s11" x="60" y="635" id="3346361" width="75" height="25" />
+  <manifest datacolumn="s12" visible="true" name="s12" x="133" y="795" id="6529454" width="75" height="25" />
+  <manifest datacolumn="s4" visible="true" name="s4" x="923" y="661" id="32045680" width="75" height="25" />
+  <manifest datacolumn="s6" visible="true" name="s6" x="1115" y="565" id="31628185" width="75" height="25" />
+  <manifest datacolumn="ocenaoss" visible="true" name="ocenaoss" x="988" y="148" id="5775676" width="75" height="25" />
+  <manifest datacolumn="lkomp" visible="true" name="lkomp" x="518" y="807" id="14805735" width="75" height="25" />
+  <manifest datacolumn="p27" visible="true" name="p27" x="681" y="774" id="19707269" width="75" height="25" />
+  <manifest datacolumn="p23" visible="true" name="p23" x="675" y="84" id="17701050" width="75" height="25" />
+  <latent visible="true" name="Korzysci" x="271" y="108" id="7088278" width="60" height="74" folded="false" alignment="LEFT" />
+  <latent visible="true" name="Use" x="840" y="304" id="8644081" width="60" height="74" folded="false" alignment="LEFT" />
+  <latent visible="true" name="Koszty" x="227" y="357" id="5316106" width="60" height="74" folded="false" alignment="LEFT" />
+  <latent visible="true" name="KorzysciPos" x="964" y="539" id="8689654" width="60" height="74" folded="false" alignment="LEFT" />
+  <latent visible="true" name="Satysfakcja" x="265" y="628" id="17292542" width="60" height="74" folded="false" alignment="LEFT" />
+  <latent visible="true" name="zlozonosc" x="498" y="657" id="4625401" width="60" height="74" folded="false" alignment="LEFT" />
+  <latent visible="true" name="Dostoso" x="810" y="59" id="6215763" width="60" height="74" folded="false" alignment="LEFT" />
+  <manifest datacolumn="d2" visible="true" name="d2" x="136" y="80" id="8643419" width="75" height="25" />
+  <manifest datacolumn="d3" visible="true" name="d3" x="136" y="115" id="28921506" width="75" height="25" />
+  <connection visible="true" source="19707269" target="4625401" />
+  <connection visible="true" source="6215763" target="8644081" />
+  <connection visible="true" source="4113761" target="7088278" />
+  <connection visible="true" source="4040784" target="7088278" />
+  <connection visible="true" source="7088278" target="8644081" />
+  <connection visible="true" source="5316106" target="9950192" />
+  <connection visible="true" source="8689654" target="8644081" />
+  <connection visible="true" source="17292542" target="8644081" />
+  <connection visible="true" source="5316106" target="8644081" />
+  <connection visible="true" source="32045680" target="8689654" />
+  <connection visible="true" source="8643419" target="7088278" />
+  <connection visible="true" source="4625401" target="8644081" />
+  <connection visible="true" source="5775676" target="8644081" />
+  <connection visible="true" source="28921506" target="7088278" />
+  <connection visible="true" source="31628185" target="8689654" />
+  <connection visible="true" source="17292542" target="6529454" />
+  <connection visible="true" source="6215763" target="17701050" />
+  <connection visible="true" source="14805735" target="4625401" />
+  <connection visible="true" source="17292542" target="3346361" />
+</model>
+

@@ -1,0 +1,15 @@
+Skrypt PRELIS generujacy macierz kowariancji z danych RAW
+! NI, liczba zm. obserwowalnych ; NO, liczba obserwacji
+DATA NI=30 NO=228
+
+! FI -- plik z danymi w formacie FREE
+RAW FI=Model_TAMSC_00.txt
+
+! etykiety zmiennych (w PRELIS do niczego niepotrzebne)
+LA  FI=Model_TAMSC_00.lbl
+
+! macierz kowariancji (do wykorzystania przez LISREL)
+OUTPUT MATRIX=KM SM=Model_TAMSC_00.mtx
+
+!OK
+

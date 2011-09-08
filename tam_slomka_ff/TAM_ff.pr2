@@ -1,0 +1,13 @@
+Skrypt PRELIS generujacy macierz kowariancji z danych RAW
+! (c) T.Przechlewski 2011 (licencja GPL) http://member.acm.org/~tprzechlewski/sem/
+
+DATA NI=20 NO=209
+
+! FI -- plik z danymi w formacie FREE
+RAW FI=wyniki_firefox.txt
+
+! etykiety zmiennych (w PRELIS do niczego niepotrzebne)
+LA ; Pu1 Pu2 Pu3 Pu4 Pu5 Peou1 Peou2 Peou3 Peou4 Peou5 Att1 Att2 Att3 Att4 Bi1 Bi2 Bi3 Age Time Zstatus
+
+! macierz kowariancji (do wykorzystania przez LISREL)
+OUTPUT MATRIX=KM SM=TAM_ff.mtx

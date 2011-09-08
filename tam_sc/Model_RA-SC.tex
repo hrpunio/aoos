@@ -1,0 +1,121 @@
+% (c) T. Przechlewski, 2011; licencja GPL
+\documentclass{article}
+\usepackage{polski}
+\usepackage{natbib,graphicx}
+\usepackage[latin2]{inputenc}
+\newcommand{\FFx}{\acro{FF}} %% Oznacza FireFoksa
+\newcommand\factor[1]{\acro{#1}}
+\DeclareRobustCommand\acro[1]{\ifx \f@series \BFseriesCode #1\else\textsc{\lowercase{#1}}\fi}
+\title{Model RA-SC akceptacji technologii}
+\author{Tomasz Przechlewski}
+\date{2011}
+\begin{document}
+\maketitle
+
+\section{Model RA-SC}
+
+Proponowany model przedstawiono na rys.~\ref{tam-sc-ra-oss}.
+
+\begin{figure}[!tbh]\centering
+\includegraphics[width=.905\textwidth]{./Diagram-TAM-sc}
+\caption{Model akceptacji technologii \acro{RA-SC} uwzglêdniaj±cy wzglêdn± przewagê,
+koszty zmiany i~czynnik niekompatybilno¶ci technologicznej}
+\label{tam-sc-ra-oss}
+\end{figure}
+
+\section{Skale pomiarowe czynników modelu RA-SC}
+
+\begin{description}
+ %% %% %%
+\item[RPSQ:]
+{\FFx} jest tañszy ni¿ inna przegl±darka~\acro{WWW} (\acro{rpae1});
+Eksploatacja {\FFx} wymaga ni¿szych nak³adów ni¿ innej przegl±darki~\acro{WWW} (\acro{rpae2});
+ %% rpa-T %%
+{\FFx} ma wiêcej u¿ytecznych funkcji ni¿ inne przegl±darki \acro{WWW} (\acro{rpat1});
+{\FFx} jest przegl±dark± bardziej niezawodn± i~wydajniejsz± od innych %%przegl±darek 
+(\acro{rpat2});
+Jako¶æ {\FFx} jest wy¿sza od jako¶ci innych przegl±darek~\acro{WWW} (\acro{rpat3});
+ %% peou %%
+W~porównaniu do innej przegl±darki~\acro{WWW} pos³ugiwanie siê {\FFx} jest prostsze (\acro{reuo1});
+Pos³uguj±c siê {\FFx} ³atwiej ni¿ u¿ywaj±c innej przegl±darki~\acro{WWW}
+osi±gam to co zamierza³em osi±gn±æ (\acro{reou2});
+£atwiej jest posi±¶æ bieg³± znajomo¶æ {\FFx} ni¿ innej przegl±darki (\acro{reou2});
+ %% ** Jestem/by³em w~stanie szybciej nauczyæ siê jak u¿ywaæ {\FFx} (\acro{reou3});
+ %% **
+\emph{Open Source\/} to niezawodne programy o~wysokiej jako¶ci (\acro{rpai1});
+Funkcjonalno¶æ oprogramowania \emph{Open Source\/} jest wysoka (\acro{rpai2}).
+\item[SC:]
+Zmiana {\FFx} na inn± przegl±darkê zabra³a/by mi sporo czasu,  wi±za³a/by siê z~du¿ymi kosztami a~wysi³ek po¶wiêcony
+   na bieg³e opanowanie poprzednio u¿ywanej 
+   przegl±darki~\acro{WWW} okaza³/by siê zbêdny (\acro{sc1});
+Zmiana {\FFx} na inn± przegl±darkê~\acro{WWW} to niepotrzebny k³opot (\acro{sc2});
+Zmiana {\FFx} na inn± przegl±darkê~\acro{WWW} jest k³opotliwa oraz czaso- i~pracoch³onna (\acro{sc3});
+Zmiana jednej przegl±darki na inn± zawsze wi±¿e siê z~kosztami i~ryzykiem (\acro{sc4});
+Zmiana {\FFx} nie wi±za³a siê z~du¿ymi kosztami (\acro{sc5}, odwrotna). %% <-- wek
+\item[NCT:] %% ** niekompatybilnosc technologiczna **
+ %%
+Kompatybilno¶æ {\FFx} z~innymi u¿ywanymi przeze mnie 
+aplikacjami jest ni¿sza 
+ni¿ w~przypadku innych przegl±darek \acro{www} (\acro{TC1});
+Wymiana danych i/lub korzystanie z~danych publikowanych w~zamkniêtych formatach 
+w~przypadku {\FFx} w~porównaniu do innych przegl±darek \acro{www}
+jest utrudniona~(\acro{TC2});
+{\FFx} jest w~pe³ni kompatybilny z~reszt± u¿ywanych przeze mnie programów~(\acro{TC3}, odwrotna). %% **
+ \looseness-1
+ %%
+\item[PIIT:]
+Czujê siê niepewnie próbuj±c nowe lub nieznane aplikacje komputerowe (\acro{pi1}, odwrotna);
+Je¿eli dowiem siê, ¿e istnieje ciekawa aplikacja 
+komputerowa, której nie znam, to szukam mo¿liwo¶ci aby j± wypróbowaæ (\acro{pi2});
+W¶ród moich znajomych jestem 
+zwykle pierwsz± osob± u¿ywaj±c± nowych/nieznanych 
+aplikacji komputerowych (\acro{pi3});
+Lubiê sprawdzaæ mo¿liwo¶ci nowych/nieznanych aplikacji komputerowych (\acro{pi4}).
+ %%
+\item[CI:]
+Zamierzam u¿ywaæ {\FFx} ca³y czas (\acro{CI1}); %%--> Agarwal/Prasad
+Bêdê u¿ywa³ {\FFx} regularnie w~przysz³o¶ci (\acro{CI2}); %%--> A/P
+Bêdê czêsto u¿ywa³ {\FFx} (\acro{CI3});
+Nie zamieniê {\FFx} na inn± przegl±darkê (\acro{CI4}).
+%% %% Zamierzam zmieniæ {\FFx} na inn± przegl±darkê [odwrotna] (\acro{CI5}). %% ;  --> Bhattacharjee
+\end{description}
+%%\smallskip 
+\par
+\noindent
+Respondenci okre¶lali \emph{w~jakim stopniu\/} zgadzaj± siê z~powy¿szymi stwierdzeniami 
+stosuj±c 7~stopniow± skalê Likerta.
+
+\begin{thebibliography}{}
+
+\bibitem[Bhattacherjee(2001)]{Bhattacherjee2001}
+Bhattacherjee, A. (2001).
+Understanding information systems continuance: An
+  expectation-confirmation model. {\em MIS Quarterly}, 25(3).
+
+\bibitem[Choudhury i Karahanna(2008)]{ChoudhuryKarahanna2008}
+Choudhury, V. i Karahanna, E. (2008).
+The relative advantage of electronic channels: A multidimensional view.
+{\em MIS Quarterly}, 32(1):179--200.
+
+\bibitem[Davis i~inni(1989)]{DavisetAl1989}
+Davis, F.~D., Bagozzi, R.~P., i Warshaw, P.~R. (1989).
+User acceptance of computer technology: a comparison of two theoretical models.
+{\em Decision Sciences}, 35(8):982--1003.
+
+\bibitem[Venkatesh i~inni(2003)]{VenkateshEtAl03}
+Venkatesh, V., Morris, M.~G., Davis, G.~B., , i Davis, F.~D. (2003).
+User acceptance of information technology: Toward a unified view.
+{\em MIS Quarterly}, 27(3):425--478.
+
+\end{thebibliography}
+
+\end{document}
+
+% Local Variables:
+% TeX-master: ""
+% mode: latex
+% coding: iso-8859-2
+% ispell-local-dictionary: "polish"
+% LocalWords:
+% LocalWords:
+% End:

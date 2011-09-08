@@ -1,0 +1,33 @@
+Trzyskladnikowy model TAM
+! (c) T.Przechlewski 2011 (licencja GPL) http://member.acm.org/~tprzechlewski/sem/
+DA NI=20 NO=209 MA=CM
+
+KM FI=TAM_ff.mtx
+
+! Etykiety miar (podane w kolejnosci w jakiej wystêpuj± w macierzy KM
+LA ; Pu1 Pu2 Pu3 Pu4 Pu5 Eou1 Eou2 Eou3 Eou4 Eou5 Att1 Att2 Att3 Att4 Bi1 Bi2 Bi3 Age Time Zstatus
+
+! Zmiana kolejnosci (przypisanie miar czynnikom X1--X25 --> PU, X3--X21 --> PEOU itd...
+SE ; Bi1 Bi2 Bi3    Pu1 Pu3 Pu4    Eou2 Eou3 Eou4 Eou5 / 
+
+MO NY=6 NE=2   NX=4 NK=1  LX=FU,FI LX=FU,FI BE=FU,FI GA=FU,FI PH=SY,FR PS=DI,FR TD=DI,FR TE=DI,FR
+
+! Etykiety zmiennych endogenicznynych (eta)
+LE ; BI PU
+
+! Etykiety zmiennych egzogenicznych (ksi)
+LK ; EOU
+
+FR LY(2,1) LY(3,1)         ! ITU = 3
+FR LY(5,2) LY(6,2)         ! PU = 3
+
+FR LX(2,1) LX(3,1) LX(4,1) ! PEOU  = 4
+
+VA 1 LY(1,1) LY(4,2)
+VA 1 LX(1,1)
+
+! czesc strukturalna
+FR BE(1,2)
+FR GA(1,1) GA(2,1)
+
+OU ME=ML ND=3 MI RS MR SC XM AD=200

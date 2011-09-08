@@ -1,0 +1,13 @@
+Skrypt PRELIS generujacy macierz kowariancji z danych RAW
+! NI, liczba zm. obserwowalnych ; NO, liczba obserwacji
+DATA NI=42 NO=216
+
+! FI -- plik z danymi w formacie FREE
+RAW FI=badanie_toe.raw
+
+! etykiety zmiennych (w PRELIS do niczego niepotrzebne)
+LA fi=badanie_toe.lbl
+CO llkomp p27
+
+! macierz kowariancji (do wykorzystania przez LISREL)
+OUTPUT MATRIX=KM SM=badanie_toe.mtx

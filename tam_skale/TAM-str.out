@@ -1,0 +1,760 @@
+
+                                DATE:  2/11/2011
+                                  TIME: 17:38
+
+
+                                L I S R E L  8.72
+
+                                       BY
+
+                         Karl G. J”reskog & Dag S”rbom
+
+
+
+                    This program is published exclusively by
+                    Scientific Software International, Inc.
+                       7383 N. Lincoln Avenue, Suite 100
+                        Lincolnwood, IL 60712, U.S.A. 
+            Phone: (800)247-6113, (847)675-0720, Fax: (847)675-2140
+        Copyright by Scientific Software International, Inc., 1981-2005 
+          Use of this program is subject to the terms specified in the
+                        Universal Copyright Convention.
+                          Website: www.ssicentral.com
+
+ The following lines were read from file Model_TAM.ls8:
+
+ Model TAM CFA dla trzech czynnikow (PU, PEOU BI).
+ ! Por. skrypt Model_TAM_CFA_f.ls8 zawierajacy CFA stosowanej skali
+ ! (c) T.Przechlewski 2011 (licencja GPL) http://member.acm.org/~tprzechlewski/sem/
+  
+ DA NI=14 NO=192 MA=CM
+  
+ KM FI=Model_TAM.mtx
+  
+ ! Etykiety miar (podane w kolejnosci w jakiej wystêpuj± w macierzy KM)
+ LA FI=Model_TAM.lbl
+  
+ ! Zmiana kolejnosci (przypisanie miar czynnikom) je¿eli nie wszystkie zmienne
+ ! s± wybrane zakoñcz polecenie SE znakiem `/'
+ ! Zmienne endogeniczne (y-ki) na pocz±tku
+ !    ---- PU ------     --- BI -------   --- PEOU  ---------
+ SE ; pu1 pu2 pu3 pu5    bi1 bi2 bi3      eu1 eu2 eu3 eu4 eu5 /
+  
+ MO NY=7 NE=2 NX=5 NK=1 LX=FU,FI LX=FU,FI BE=FU,FI GA=FU,FI PH=SY,FR PS=DI,FR TD=DI,FR TE=DI,FR
+  
+ ! Etykiety zmiennych endogenicznynych, eta
+ LE ; PU BI
+  
+ ! Etykiety zmiennych egzogenicznych, ksi
+ LK ; PEOU
+  
+ FR LX(2,1) LX(3,1) LX(4,1) LX(5,1) ! PEOU
+  
+ FR LY(2,1) LY(3,1) LY(4,1)         ! PU
+ FR LY(6,2) LY(7,2)                 ! ITU
+  
+ VA 1 LX(1,1)
+ VA 1 LY(1,1) LY(5,2)
+  
+ ! czesc strukturalna
+ FR GA(1,1) ! PEOU->PU
+ FR GA(2,1) ! PEOU->BI
+ FR BE(2,1) ! PU-BI
+  
+ OU ME=ML ND=3 MI RS MR SC XM AD=200
+
+ Model TAM CFA dla trzech czynnikow (PU, PEOU BI).                              
+
+                           Number of Input Variables 14
+                           Number of Y - Variables    7
+                           Number of X - Variables    5
+                           Number of ETA - Variables  2
+                           Number of KSI - Variables  1
+                           Number of Observations   192
+
+ Model TAM CFA dla trzech czynnikow (PU, PEOU BI).                              
+
+         Covariance Matrix       
+
+                 pu1        pu2        pu3        pu5        bi1        bi2   
+            --------   --------   --------   --------   --------   --------
+      pu1      1.000
+      pu2      0.574      1.000
+      pu3      0.601      0.612      1.000
+      pu5      0.569      0.497      0.543      1.000
+      bi1      0.531      0.426      0.468      0.382      1.000
+      bi2      0.493      0.398      0.449      0.407      0.692      1.000
+      bi3      0.483      0.318      0.361      0.283      0.545      0.592
+      eu1      0.178      0.138      0.218      0.067      0.201      0.151
+      eu2      0.283      0.233      0.215      0.209      0.298      0.279
+      eu3      0.244      0.213      0.313      0.199      0.277      0.244
+      eu4      0.144      0.207      0.191      0.045      0.260      0.276
+      eu5      0.264      0.299      0.179      0.138      0.326      0.332
+
+         Covariance Matrix       
+
+                 bi3        eu1        eu2        eu3        eu4        eu5   
+            --------   --------   --------   --------   --------   --------
+      bi3      1.000
+      eu1      0.088      1.000
+      eu2      0.233      0.483      1.000
+      eu3      0.137      0.619      0.605      1.000
+      eu4      0.190      0.603      0.557      0.558      1.000
+      eu5      0.204      0.500      0.543      0.528      0.571      1.000
+
+
+ Model TAM CFA dla trzech czynnikow (PU, PEOU BI).                              
+
+ Parameter Specifications
+
+         LAMBDA-Y    
+
+                  PU         BI
+            --------   --------
+      pu1          0          0
+      pu2          1          0
+      pu3          2          0
+      pu5          3          0
+      bi1          0          0
+      bi2          0          4
+      bi3          0          5
+
+         LAMBDA-X    
+
+                PEOU
+            --------
+      eu1          0
+      eu2          6
+      eu3          7
+      eu4          8
+      eu5          9
+
+         BETA        
+
+                  PU         BI
+            --------   --------
+       PU          0          0
+       BI         10          0
+
+         GAMMA       
+
+                PEOU
+            --------
+       PU         11
+       BI         12
+
+         PHI         
+
+                PEOU
+            --------
+                  13
+
+         PSI         
+
+                  PU         BI
+            --------   --------
+                  14         15
+
+         THETA-EPS   
+
+                 pu1        pu2        pu3        pu5        bi1        bi2
+            --------   --------   --------   --------   --------   --------
+                  16         17         18         19         20         21
+
+         THETA-EPS   
+
+                 bi3
+            --------
+                  22
+
+         THETA-DELTA 
+
+                 eu1        eu2        eu3        eu4        eu5
+            --------   --------   --------   --------   --------
+                  23         24         25         26         27
+ 
+
+
+ Model TAM CFA dla trzech czynnikow (PU, PEOU BI).                              
+
+ Number of Iterations =  7
+
+ LISREL Estimates (Maximum Likelihood)                           
+
+         LAMBDA-Y    
+
+                  PU         BI   
+            --------   --------
+      pu1      1.000       - - 
+ 
+      pu2      0.914       - - 
+             (0.089)
+              10.215
+ 
+      pu3      0.974       - - 
+             (0.089)
+              10.925
+ 
+      pu5      0.855       - - 
+             (0.090)
+               9.475
+ 
+      bi1       - -       1.000
+ 
+      bi2       - -       1.019
+                        (0.087)
+                         11.719
+ 
+      bi3       - -       0.826
+                        (0.086)
+                          9.564
+ 
+
+         LAMBDA-X    
+
+                PEOU   
+            --------
+      eu1      1.000
+ 
+      eu2      1.005
+             (0.105)
+               9.528
+ 
+      eu3      1.066
+             (0.106)
+              10.071
+ 
+      eu4      1.042
+             (0.106)
+               9.863
+ 
+      eu5      0.976
+             (0.105)
+               9.257
+ 
+
+         BETA        
+
+                  PU         BI   
+            --------   --------
+       PU       - -        - - 
+ 
+       BI      0.673       - - 
+             (0.090)
+               7.454
+ 
+
+         GAMMA       
+
+                PEOU   
+            --------
+       PU      0.395
+             (0.095)
+               4.182
+ 
+       BI      0.192
+             (0.084)
+               2.297
+ 
+
+         Covariance Matrix of ETA and KSI        
+
+                  PU         BI       PEOU   
+            --------   --------   --------
+       PU      0.645
+       BI      0.475      0.681
+     PEOU      0.213      0.246      0.538
+
+         PHI         
+
+                PEOU   
+            --------
+               0.538
+             (0.097)
+               5.566
+ 
+
+         PSI         
+         Note: This matrix is diagonal.
+
+                  PU         BI   
+            --------   --------
+               0.561      0.314
+             (0.092)    (0.060)
+               6.118      5.248
+ 
+
+         Squared Multiple Correlations for Structural Equations  
+
+                  PU         BI   
+            --------   --------
+               0.130      0.538
+
+         Squared Multiple Correlations for Reduced Form          
+
+                  PU         BI   
+            --------   --------
+               0.130      0.166
+
+         Reduced Form                
+
+                PEOU   
+            --------
+       PU      0.395
+             (0.095)
+               4.182
+ 
+       BI      0.458
+             (0.097)
+               4.704
+ 
+
+         THETA-EPS   
+
+                 pu1        pu2        pu3        pu5        bi1        bi2   
+            --------   --------   --------   --------   --------   --------
+               0.355      0.461      0.389      0.529      0.319      0.294
+             (0.052)    (0.058)    (0.054)    (0.063)    (0.052)    (0.052)
+               6.824      7.888      7.216      8.348      6.103      5.681
+ 
+
+         THETA-EPS   
+
+                 bi3   
+            --------
+               0.535
+             (0.064)
+               8.368
+ 
+
+         Squared Multiple Correlations for Y - Variables         
+
+                 pu1        pu2        pu3        pu5        bi1        bi2   
+            --------   --------   --------   --------   --------   --------
+               0.645      0.539      0.611      0.471      0.681      0.706
+
+         Squared Multiple Correlations for Y - Variables         
+
+                 bi3   
+            --------
+               0.465
+
+         THETA-DELTA 
+
+                 eu1        eu2        eu3        eu4        eu5   
+            --------   --------   --------   --------   --------
+               0.462      0.457      0.389      0.416      0.488
+             (0.058)    (0.057)    (0.053)    (0.055)    (0.060)
+               8.000      7.959      7.367      7.625      8.177
+ 
+
+         Squared Multiple Correlations for X - Variables         
+
+                 eu1        eu2        eu3        eu4        eu5   
+            --------   --------   --------   --------   --------
+               0.538      0.543      0.611      0.584      0.512
+
+
+                           Goodness of Fit Statistics
+
+                             Degrees of Freedom = 51
+              Minimum Fit Function Chi-Square = 76.180 (P = 0.0127)
+      Normal Theory Weighted Least Squares Chi-Square = 76.054 (P = 0.0130)
+                Estimated Non-centrality Parameter (NCP) = 25.054
+            90 Percent Confidence Interval for NCP = (5.565 ; 52.512)
+ 
+                        Minimum Fit Function Value = 0.399
+                Population Discrepancy Function Value (F0) = 0.131
+             90 Percent Confidence Interval for F0 = (0.0291 ; 0.275)
+             Root Mean Square Error of Approximation (RMSEA) = 0.0507
+           90 Percent Confidence Interval for RMSEA = (0.0239 ; 0.0734)
+               P-Value for Test of Close Fit (RMSEA < 0.05) = 0.457
+ 
+                  Expected Cross-Validation Index (ECVI) = 0.681
+            90 Percent Confidence Interval for ECVI = (0.579 ; 0.825)
+                         ECVI for Saturated Model = 0.817
+                       ECVI for Independence Model = 10.208
+ 
+     Chi-Square for Independence Model with 66 Degrees of Freedom = 1925.704
+                           Independence AIC = 1949.704
+                               Model AIC = 130.054
+                             Saturated AIC = 156.000
+                           Independence CAIC = 2000.794
+                               Model CAIC = 245.006
+                             Saturated CAIC = 488.085
+ 
+                          Normed Fit Index (NFI) = 0.960
+                       Non-Normed Fit Index (NNFI) = 0.982
+                    Parsimony Normed Fit Index (PNFI) = 0.742
+                       Comparative Fit Index (CFI) = 0.986
+                       Incremental Fit Index (IFI) = 0.987
+                         Relative Fit Index (RFI) = 0.949
+ 
+                            Critical N (CN) = 195.036
+ 
+ 
+                     Root Mean Square Residual (RMR) = 0.0461
+                            Standardized RMR = 0.0461
+                       Goodness of Fit Index (GFI) = 0.938
+                  Adjusted Goodness of Fit Index (AGFI) = 0.905
+                  Parsimony Goodness of Fit Index (PGFI) = 0.613
+
+ Model TAM CFA dla trzech czynnikow (PU, PEOU BI).                              
+
+         Fitted Covariance Matrix
+
+                 pu1        pu2        pu3        pu5        bi1        bi2   
+            --------   --------   --------   --------   --------   --------
+      pu1      1.000
+      pu2      0.589      1.000
+      pu3      0.628      0.574      1.000
+      pu5      0.551      0.504      0.537      1.000
+      bi1      0.475      0.434      0.462      0.406      1.000
+      bi2      0.483      0.442      0.471      0.413      0.693      1.000
+      bi3      0.392      0.358      0.382      0.335      0.562      0.573
+      eu1      0.213      0.194      0.207      0.182      0.246      0.251
+      eu2      0.214      0.195      0.208      0.183      0.248      0.252
+      eu3      0.227      0.207      0.221      0.194      0.263      0.267
+      eu4      0.222      0.203      0.216      0.189      0.257      0.262
+      eu5      0.207      0.190      0.202      0.177      0.240      0.245
+
+         Fitted Covariance Matrix
+
+                 bi3        eu1        eu2        eu3        eu4        eu5   
+            --------   --------   --------   --------   --------   --------
+      bi3      1.000
+      eu1      0.203      1.000
+      eu2      0.205      0.541      1.000
+      eu3      0.217      0.573      0.576      1.000
+      eu4      0.212      0.560      0.563      0.598      1.000
+      eu5      0.199      0.525      0.527      0.559      0.547      1.000
+
+         Fitted Residuals
+
+                 pu1        pu2        pu3        pu5        bi1        bi2   
+            --------   --------   --------   --------   --------   --------
+      pu1      0.000
+      pu2     -0.016      0.000
+      pu3     -0.026      0.038      0.000
+      pu5      0.018     -0.007      0.007      0.000
+      bi1      0.056     -0.007      0.006     -0.024      0.000
+      bi2      0.009     -0.044     -0.022     -0.006     -0.002      0.000
+      bi3      0.091     -0.040     -0.020     -0.052     -0.017      0.019
+      eu1     -0.034     -0.056      0.011     -0.115     -0.045     -0.100
+      eu2      0.069      0.037      0.007      0.026      0.051      0.027
+      eu3      0.017      0.006      0.093      0.005      0.015     -0.024
+      eu4     -0.077      0.004     -0.025     -0.145      0.004      0.015
+      eu5      0.057      0.110     -0.023     -0.040      0.085      0.088
+
+         Fitted Residuals
+
+                 bi3        eu1        eu2        eu3        eu4        eu5   
+            --------   --------   --------   --------   --------   --------
+      bi3      0.000
+      eu1     -0.115      0.000
+      eu2      0.029     -0.057      0.000
+      eu3     -0.080      0.045      0.029      0.000
+      eu4     -0.022      0.043     -0.007     -0.040      0.000
+      eu5      0.006     -0.025      0.016     -0.031      0.024      0.000
+
+ Summary Statistics for Fitted Residuals
+
+ Smallest Fitted Residual =   -0.145
+   Median Fitted Residual =    0.000
+  Largest Fitted Residual =    0.110
+
+ Stemleaf Plot
+
+ - 1|4210 
+ - 0|88665 
+ - 0|4444433333222222221111000000000000000 
+   0|1111111111222223333444 
+   0|556679999 
+   1|1
+
+         Standardized Residuals  
+
+                 pu1        pu2        pu3        pu5        bi1        bi2   
+            --------   --------   --------   --------   --------   --------
+      pu1       - - 
+      pu2     -0.855       - - 
+      pu3     -1.774      1.890       - - 
+      pu5      0.827     -0.252      0.279       - - 
+      bi1      1.851     -0.208      0.196     -0.614       - - 
+      bi2      0.316     -1.280     -0.712     -0.158     -0.283       - - 
+      bi3      2.226     -0.900     -0.485     -1.100     -0.997      1.250
+      eu1     -0.699     -1.057      0.223     -2.075     -0.960     -2.178
+      eu2      1.412      0.703      0.134      0.479      1.086      0.586
+      eu3      0.371      0.119      1.953      0.099      0.341     -0.566
+      eu4     -1.640      0.082     -0.518     -2.681      0.080      0.335
+      eu5      1.129      2.034     -0.440     -0.705      1.778      1.858
+
+         Standardized Residuals  
+
+                 bi3        eu1        eu2        eu3        eu4        eu5   
+            --------   --------   --------   --------   --------   --------
+      bi3       - - 
+      eu1     -2.112       - - 
+      eu2      0.525     -2.307       - - 
+      eu3     -1.528      2.127      1.372       - - 
+      eu4     -0.412      1.880     -0.294     -2.090       - - 
+      eu5      0.102     -0.955      0.599     -1.393      1.007       - - 
+
+ Summary Statistics for Standardized Residuals
+
+ Smallest Standardized Residual =   -2.681
+   Median Standardized Residual =    0.000
+  Largest Standardized Residual =    2.226
+
+ Stemleaf Plot
+
+ - 2|7 
+ - 2|32111 
+ - 1|865 
+ - 1|4311000 
+ - 0|997776655 
+ - 0|4433322000000000000 
+   0|1111112233334 
+   0|556678 
+   1|011344 
+   1|89999 
+   2|0012
+ Largest Negative Standardized Residuals
+ Residual for      eu4 and      pu5  -2.681
+
+ Model TAM CFA dla trzech czynnikow (PU, PEOU BI).                              
+
+                         Qplot of Standardized Residuals
+
+  3.5..........................................................................
+     .                                                                       ..
+     .                                                                      . .
+     .                                                                    .   .
+     .                                                                  .     .
+     .                                                                 .      .
+     .                                                               .        .
+     .                                                             .          .
+     .                                                            .           .
+     .                                                          .x            .
+     .                                                        .               .
+     .                                                       .  x             .
+     .                                                     .   x              .
+     .                                                   .    x               .
+     .                                                  .    *                .
+ N   .                                                .      *                .
+ o   .                                              .   *   x                 .
+ r   .                                             . * x                      .
+ m   .                                          xxx x                         .
+ a   .                                        xxx                             .
+ l   .                                       *.                               .
+     .                                     xx                                 .
+ Q   .                                    xx                                  .
+ u   .                                 *x.x                                   .
+ a   .                               *xx                                      .
+ n   .                             xx.                                        .
+ t   .                            x .                                         .
+ i   .                         x*x.                                           .
+ l   .                        *x.                                             .
+ e   .                    xxx  .                                              .
+ s   .                 xx    .                                                .
+     .              *      .                                                  .
+     .             x      .                                                   .
+     .             x    .                                                     .
+     .           x    .                                                       .
+     .               .                                                        .
+     .        x    .                                                          .
+     .           .                                                            .
+     .          .                                                             .
+     .        .                                                               .
+     .      .                                                                 .
+     .     .                                                                  .
+     .   .                                                                    .
+     . .                                                                      .
+ -3.5..........................................................................
+   -3.5                                                                      3.5
+                             Standardized Residuals
+
+ Model TAM CFA dla trzech czynnikow (PU, PEOU BI).                              
+
+ Covariances
+
+         Y - ETA 
+
+                 pu1        pu2        pu3        pu5        bi1        bi2   
+            --------   --------   --------   --------   --------   --------
+       PU      0.645      0.589      0.628      0.551      0.475      0.483
+       BI      0.475      0.434      0.462      0.406      0.681      0.693
+
+         Y - ETA 
+
+                 bi3   
+            --------
+       PU      0.392
+       BI      0.562
+
+         Y - KSI 
+
+                 pu1        pu2        pu3        pu5        bi1        bi2   
+            --------   --------   --------   --------   --------   --------
+     PEOU      0.213      0.194      0.207      0.182      0.246      0.251
+
+         Y - KSI 
+
+                 bi3   
+            --------
+     PEOU      0.203
+
+         X - ETA 
+
+                 eu1        eu2        eu3        eu4        eu5   
+            --------   --------   --------   --------   --------
+       PU      0.213      0.214      0.227      0.222      0.207
+       BI      0.246      0.248      0.263      0.257      0.240
+
+         X - KSI 
+
+                 eu1        eu2        eu3        eu4        eu5   
+            --------   --------   --------   --------   --------
+     PEOU      0.538      0.541      0.573      0.560      0.525
+
+ Model TAM CFA dla trzech czynnikow (PU, PEOU BI).                              
+
+ Standardized Solution           
+
+         LAMBDA-Y    
+
+                  PU         BI   
+            --------   --------
+      pu1      0.803       - - 
+      pu2      0.734       - - 
+      pu3      0.782       - - 
+      pu5      0.686       - - 
+      bi1       - -       0.825
+      bi2       - -       0.841
+      bi3       - -       0.682
+
+         LAMBDA-X    
+
+                PEOU   
+            --------
+      eu1      0.733
+      eu2      0.737
+      eu3      0.782
+      eu4      0.764
+      eu5      0.716
+
+         BETA        
+
+                  PU         BI   
+            --------   --------
+       PU       - -        - - 
+       BI      0.655       - - 
+
+         GAMMA       
+
+                PEOU   
+            --------
+       PU      0.361
+       BI      0.171
+
+         Correlation Matrix of ETA and KSI       
+
+                  PU         BI       PEOU   
+            --------   --------   --------
+       PU      1.000
+       BI      0.716      1.000
+     PEOU      0.361      0.407      1.000
+
+         PSI         
+         Note: This matrix is diagonal.
+
+                  PU         BI   
+            --------   --------
+               0.870      0.462
+
+         Regression Matrix ETA on KSI (Standardized) 
+
+                PEOU   
+            --------
+       PU      0.361
+       BI      0.407
+
+ Model TAM CFA dla trzech czynnikow (PU, PEOU BI).                              
+
+ Completely Standardized Solution
+
+         LAMBDA-Y    
+
+                  PU         BI   
+            --------   --------
+      pu1      0.803       - - 
+      pu2      0.734       - - 
+      pu3      0.782       - - 
+      pu5      0.686       - - 
+      bi1       - -       0.825
+      bi2       - -       0.841
+      bi3       - -       0.682
+
+         LAMBDA-X    
+
+                PEOU   
+            --------
+      eu1      0.733
+      eu2      0.737
+      eu3      0.782
+      eu4      0.764
+      eu5      0.716
+
+         BETA        
+
+                  PU         BI   
+            --------   --------
+       PU       - -        - - 
+       BI      0.655       - - 
+
+         GAMMA       
+
+                PEOU   
+            --------
+       PU      0.361
+       BI      0.171
+
+         Correlation Matrix of ETA and KSI       
+
+                  PU         BI       PEOU   
+            --------   --------   --------
+       PU      1.000
+       BI      0.716      1.000
+     PEOU      0.361      0.407      1.000
+
+         PSI         
+         Note: This matrix is diagonal.
+
+                  PU         BI   
+            --------   --------
+               0.870      0.462
+
+         THETA-EPS   
+
+                 pu1        pu2        pu3        pu5        bi1        bi2   
+            --------   --------   --------   --------   --------   --------
+               0.355      0.461      0.389      0.529      0.319      0.294
+
+         THETA-EPS   
+
+                 bi3   
+            --------
+               0.535
+
+         THETA-DELTA 
+
+                 eu1        eu2        eu3        eu4        eu5   
+            --------   --------   --------   --------   --------
+               0.462      0.457      0.389      0.416      0.488
+
+         Regression Matrix ETA on KSI (Standardized) 
+
+                PEOU   
+            --------
+       PU      0.361
+       BI      0.407

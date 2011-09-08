@@ -1,0 +1,1000 @@
+
+                                DATE:  2/16/2011
+                                  TIME: 10:46
+
+
+                                L I S R E L  8.72
+
+                                       BY
+
+                         Karl G. J”reskog & Dag S”rbom
+
+
+
+                    This program is published exclusively by
+                    Scientific Software International, Inc.
+                       7383 N. Lincoln Avenue, Suite 100
+                        Lincolnwood, IL 60712, U.S.A. 
+            Phone: (800)247-6113, (847)675-0720, Fax: (847)675-2140
+        Copyright by Scientific Software International, Inc., 1981-2005 
+          Use of this program is subject to the terms specified in the
+                        Universal Copyright Convention.
+                          Website: www.ssicentral.com
+
+ The following lines were read from file badanie2__216_S-M44-1.ls8:
+
+ ! Objasnienie wykorzystania SI/TI [zastosowania serwerowe]
+ ! koszty korzbzp mediuja satysfakcje
+ DA NI=42 NO=216 MA=CM
+  
+ KM FI=badanie_toe.mtx
+  
+ ! Etykiety miar (podane w kolejnosci w jakiej wystêpuj± w macierzy KM
+ ! s2 d2 s3 d3 s4 d4 s5 d5 s6 d6 s7 d7 s8 d8 s9 d9 s10 d10 s11 d11 s12 d12 s13 d13 s14 d14 p23 p24 lkomp p25b p26 p27 p3 ocenaoss p5 p6 p7 p8 s1 d1
+ LA fi=badanie_toe.lbl
+  
+ ! Zmiana kolejnosci (przypisanie miar czynnikom X1--X25 --> PU, X3--X21 --> PEOU itd...
+ ! je¿eli nie wszystkie zmienne s± wybrane zakoñcz polecenie SE znakiem `/'
+ !      koszty     korzysci      use            satysfakcja   dostoso   zlozo
+ SE ;   s7 s8      s4 s6         ocenaoss       s11 s12       p23       llkomp p27   /
+  
+ ! Okre¶lenie modelu SEM (PS=DI,FR)
+ MO NY=5 NE=3  NX=5 NK=3  LX=FU,FI LY=FU,FI BE=FU,FI GA=FU,FI  PH=SY,FR    PS=DI,FR TD=DI,FR TE=DI,FR
+  
+ ! koszty(1)  korzbzp(2)  use(1)  korzysci(2)  sat(2)  wielkosc(1)
+ LE ; koszty korzysci use
+ LK ; satysfakcja dostoso zlozonosc
+  
+ FR LX(2,1)     ! sat=2 / dostoso=1
+ FR LX(5,3)     ! zlozo
+  
+ FR LY(2,1)     ! koszty
+ FR LY(4,2)     ! korzysci
+  
+ FI TE 5        ! pomiar bez-bledu: use
+ FI TD 3        ! ditto: dostoso
+  
+ VA 1 LX(1,1) LX(3,2) LX(4,3)
+ VA 1 LY(1,1) LY(3,2) LY(5,3)
+  
+ VA 0 TE 5      ! Theta-EPS: use
+ VA 0 TD 3      ! Theta-Delta: dostoso
+ !
+ !! ** model strukturalny **
+  
+ !  Sat-Koszty Sat-Korzbzp Korzysci-Use
+  
+ FR GA(1,1)   ! SAT->koszty
+ FR GA(2,1)   ! SAT->korzysci
+ FR GA(3,1)   ! sat-USE
+  
+ FR GA(3,2)   ! Dostoso-USE
+ FR GA(3,3)   ! ZLOZO-USE
+  
+ FR BE(3,2)   ! korzysci->USE
+ FR BE(3,1)   ! Koszty->USE
+  
+ ! ST .5 ALL
+  
+ OU ME=ML ND=3 MI RS MR SC AD=OFF IT=999
+
+ ! Objasnienie wykorzystania SI/TI [zastosowania serwerowe]                     
+
+                           Number of Input Variables 42
+                           Number of Y - Variables    5
+                           Number of X - Variables    5
+                           Number of ETA - Variables  3
+                           Number of KSI - Variables  3
+                           Number of Observations   216
+
+ ! Objasnienie wykorzystania SI/TI [zastosowania serwerowe]                     
+
+         Covariance Matrix       
+
+                  s7         s8         s4         s6   ocenaoss        s11   
+            --------   --------   --------   --------   --------   --------
+       s7      1.000
+       s8      0.556      1.000
+       s4     -0.306     -0.220      1.000
+       s6     -0.373     -0.302      0.619      1.000
+ ocenaoss     -0.342     -0.187      0.406      0.524      1.000
+      s11      0.245      0.144     -0.255     -0.364     -0.345      1.000
+      s12      0.148      0.170     -0.197     -0.302     -0.290      0.626
+      p23     -0.207     -0.103      0.190      0.399      0.432     -0.083
+   llkomp      0.063      0.115     -0.167     -0.083      0.010      0.169
+      p27      0.142      0.155     -0.114     -0.186     -0.063      0.155
+
+         Covariance Matrix       
+
+                 s12        p23     llkomp        p27   
+            --------   --------   --------   --------
+      s12      1.000
+      p23     -0.087      1.000
+   llkomp      0.064      0.006      1.000
+      p27      0.080     -0.062      0.490      1.000
+
+
+ ! Objasnienie wykorzystania SI/TI [zastosowania serwerowe]                     
+
+ Parameter Specifications
+
+         LAMBDA-Y    
+
+              koszty   korzysci        use
+            --------   --------   --------
+       s7          0          0          0
+       s8          1          0          0
+       s4          0          0          0
+       s6          0          2          0
+ ocenaoss          0          0          0
+
+         LAMBDA-X    
+
+            satysfak    dostoso   zlozonos
+            --------   --------   --------
+      s11          0          0          0
+      s12          3          0          0
+      p23          0          0          0
+   llkomp          0          0          0
+      p27          0          0          4
+
+         BETA        
+
+              koszty   korzysci        use
+            --------   --------   --------
+   koszty          0          0          0
+ korzysci          0          0          0
+      use          5          6          0
+
+         GAMMA       
+
+            satysfak    dostoso   zlozonos
+            --------   --------   --------
+   koszty          7          0          0
+ korzysci          8          0          0
+      use          9         10         11
+
+         PHI         
+
+            satysfak    dostoso   zlozonos
+            --------   --------   --------
+ satysfak         12
+  dostoso         13         14
+ zlozonos         15         16         17
+
+         PSI         
+
+              koszty   korzysci        use
+            --------   --------   --------
+                  18         19         20
+
+         THETA-EPS   
+
+                  s7         s8         s4         s6   ocenaoss
+            --------   --------   --------   --------   --------
+                  21         22         23         24          0
+
+         THETA-DELTA 
+
+                 s11        s12        p23     llkomp        p27
+            --------   --------   --------   --------   --------
+                  25         26          0         27         28
+ 
+
+
+ ! Objasnienie wykorzystania SI/TI [zastosowania serwerowe]                     
+
+ Number of Iterations = 15
+
+ LISREL Estimates (Maximum Likelihood)                           
+
+         LAMBDA-Y    
+
+              koszty   korzysci        use   
+            --------   --------   --------
+       s7      1.000       - -        - - 
+ 
+       s8      0.649       - -        - - 
+             (0.178)
+               3.635
+ 
+       s4       - -       1.000       - - 
+ 
+       s6       - -       1.270       - - 
+                        (0.170)
+                          7.456
+ 
+ ocenaoss       - -        - -       1.000
+ 
+
+         LAMBDA-X    
+
+            satysfak    dostoso   zlozonos   
+            --------   --------   --------
+      s11      1.000       - -        - - 
+ 
+      s12      0.851       - -        - - 
+             (0.111)
+               7.642
+ 
+      p23       - -       1.000       - - 
+ 
+   llkomp       - -        - -       1.000
+ 
+      p27       - -        - -       0.981
+                                   (0.367)
+                                     2.670
+ 
+
+         BETA        
+
+              koszty   korzysci        use   
+            --------   --------   --------
+   koszty       - -        - -        - - 
+ 
+ korzysci       - -        - -        - - 
+ 
+      use     -0.120      0.499       - - 
+             (0.075)    (0.113)
+              -1.605      4.419
+ 
+
+         GAMMA       
+
+            satysfak    dostoso   zlozonos   
+            --------   --------   --------
+   koszty      0.385       - -        - - 
+             (0.093)
+               4.142
+ 
+ korzysci     -0.435       - -        - - 
+             (0.087)
+              -4.986
+ 
+      use     -0.249      0.260      0.167
+             (0.108)    (0.054)    (0.104)
+              -2.302      4.784      1.604
+ 
+
+         Covariance Matrix of ETA and KSI        
+
+              koszty   korzysci        use   satysfak    dostoso   zlozonos   
+            --------   --------   --------   --------   --------   --------
+   koszty      0.857
+ korzysci     -0.118      0.487
+      use     -0.234      0.339      0.938
+ satysfak      0.271     -0.306     -0.373      0.704
+  dostoso     -0.056      0.064      0.330     -0.146      1.000
+ zlozonos      0.059     -0.067     -0.002      0.154     -0.027      0.500
+
+         PHI         
+
+            satysfak    dostoso   zlozonos   
+            --------   --------   --------
+ satysfak      0.704
+             (0.121)
+               5.825
+ 
+  dostoso     -0.146      1.000
+             (0.065)    (0.096)
+              -2.233     10.368
+ 
+ zlozonos      0.154     -0.027      0.500
+             (0.064)    (0.060)    (0.202)
+               2.411     -0.451      2.473
+ 
+
+         PSI         
+         Note: This matrix is diagonal.
+
+              koszty   korzysci        use   
+            --------   --------   --------
+               0.753      0.354      0.562
+             (0.236)    (0.073)    (0.060)
+               3.190      4.824      9.436
+ 
+
+         Squared Multiple Correlations for Structural Equations  
+
+              koszty   korzysci        use   
+            --------   --------   --------
+               0.122      0.274      0.400
+
+         Squared Multiple Correlations for Reduced Form          
+
+              koszty   korzysci        use   
+            --------   --------   --------
+               0.122      0.274      0.295
+
+         Reduced Form                
+
+            satysfak    dostoso   zlozonos   
+            --------   --------   --------
+   koszty      0.385       - -        - - 
+             (0.093)
+               4.142
+ 
+ korzysci     -0.435       - -        - - 
+             (0.087)
+              -4.986
+ 
+      use     -0.512      0.260      0.167
+             (0.095)    (0.054)    (0.104)
+              -5.419      4.784      1.604
+ 
+
+         THETA-EPS   
+
+                  s7         s8         s4         s6   ocenaoss   
+            --------   --------   --------   --------   --------
+               0.143      0.639      0.513      0.214       - - 
+             (0.224)    (0.113)    (0.075)    (0.093)
+               0.638      5.681      6.866      2.308
+ 
+
+         Squared Multiple Correlations for Y - Variables         
+
+                  s7         s8         s4         s6   ocenaoss   
+            --------   --------   --------   --------   --------
+               0.857      0.361      0.487      0.786      1.000
+
+         THETA-DELTA 
+
+                 s11        s12        p23     llkomp        p27   
+            --------   --------   --------   --------   --------
+               0.296      0.490       - -       0.500      0.519
+             (0.083)    (0.074)               (0.190)    (0.184)
+               3.554      6.582                 2.628      2.820
+ 
+
+         Squared Multiple Correlations for X - Variables         
+
+                 s11        s12        p23     llkomp        p27   
+            --------   --------   --------   --------   --------
+               0.704      0.510      1.000      0.500      0.481
+
+
+                           Goodness of Fit Statistics
+
+                             Degrees of Freedom = 27
+               Minimum Fit Function Chi-Square = 83.830 (P = 0.000)
+       Normal Theory Weighted Least Squares Chi-Square = 87.087 (P = 0.000)
+                Estimated Non-centrality Parameter (NCP) = 60.087
+            90 Percent Confidence Interval for NCP = (35.586 ; 92.199)
+ 
+                        Minimum Fit Function Value = 0.390
+                Population Discrepancy Function Value (F0) = 0.279
+             90 Percent Confidence Interval for F0 = (0.166 ; 0.429)
+             Root Mean Square Error of Approximation (RMSEA) = 0.102
+           90 Percent Confidence Interval for RMSEA = (0.0783 ; 0.126)
+             P-Value for Test of Close Fit (RMSEA < 0.05) = 0.000289
+ 
+                  Expected Cross-Validation Index (ECVI) = 0.666
+            90 Percent Confidence Interval for ECVI = (0.552 ; 0.815)
+                         ECVI for Saturated Model = 0.512
+                       ECVI for Independence Model = 3.708
+ 
+      Chi-Square for Independence Model with 45 Degrees of Freedom = 777.248
+                            Independence AIC = 797.248
+                               Model AIC = 143.087
+                             Saturated AIC = 110.000
+                           Independence CAIC = 841.001
+                               Model CAIC = 265.595
+                             Saturated CAIC = 350.640
+ 
+                          Normed Fit Index (NFI) = 0.892
+                       Non-Normed Fit Index (NNFI) = 0.871
+                    Parsimony Normed Fit Index (PNFI) = 0.535
+                       Comparative Fit Index (CFI) = 0.922
+                       Incremental Fit Index (IFI) = 0.924
+                         Relative Fit Index (RFI) = 0.820
+ 
+                            Critical N (CN) = 121.447
+ 
+ 
+                     Root Mean Square Residual (RMR) = 0.0874
+                            Standardized RMR = 0.0877
+                       Goodness of Fit Index (GFI) = 0.925
+                  Adjusted Goodness of Fit Index (AGFI) = 0.847
+                  Parsimony Goodness of Fit Index (PGFI) = 0.454
+
+ ! Objasnienie wykorzystania SI/TI [zastosowania serwerowe]                     
+
+         Fitted Covariance Matrix
+
+                  s7         s8         s4         s6   ocenaoss        s11   
+            --------   --------   --------   --------   --------   --------
+       s7      1.000
+       s8      0.556      1.000
+       s4     -0.118     -0.077      1.000
+       s6     -0.150     -0.097      0.619      1.000
+ ocenaoss     -0.234     -0.152      0.339      0.430      0.938
+      s11      0.271      0.176     -0.306     -0.389     -0.373      1.000
+      s12      0.231      0.150     -0.261     -0.331     -0.317      0.599
+      p23     -0.056     -0.036      0.064      0.081      0.330     -0.146
+   llkomp      0.059      0.038     -0.067     -0.085     -0.002      0.154
+      p27      0.058      0.038     -0.066     -0.083     -0.002      0.151
+
+         Fitted Covariance Matrix
+
+                 s12        p23     llkomp        p27   
+            --------   --------   --------   --------
+      s12      1.000
+      p23     -0.124      1.000
+   llkomp      0.131     -0.027      1.000
+      p27      0.128     -0.026      0.490      1.000
+
+         Fitted Residuals
+
+                  s7         s8         s4         s6   ocenaoss        s11   
+            --------   --------   --------   --------   --------   --------
+       s7      0.000
+       s8      0.000      0.000
+       s4     -0.188     -0.143      0.000
+       s6     -0.223     -0.205      0.000      0.000
+ ocenaoss     -0.108     -0.035      0.067      0.094      0.062
+      s11     -0.026     -0.032      0.052      0.025      0.028      0.000
+      s12     -0.083      0.020      0.064      0.029      0.028      0.027
+      p23     -0.150     -0.067      0.126      0.319      0.102      0.063
+   llkomp      0.004      0.076     -0.100      0.002      0.013      0.016
+      p27      0.083      0.117     -0.049     -0.102     -0.061      0.004
+
+         Fitted Residuals
+
+                 s12        p23     llkomp        p27   
+            --------   --------   --------   --------
+      s12      0.000
+      p23      0.037      0.000
+   llkomp     -0.067      0.033      0.000
+      p27     -0.049     -0.035      0.000      0.000
+
+ Summary Statistics for Fitted Residuals
+
+ Smallest Fitted Residual =   -0.223
+   Median Fitted Residual =    0.000
+  Largest Fitted Residual =    0.319
+
+ Stemleaf Plot
+
+ - 2|20 
+ - 1|954100 
+ - 0|8776554333000000000000000 
+   0|122233333456667889 
+   1|023 
+   2| 
+   3|2
+
+         Standardized Residuals  
+
+                  s7         s8         s4         s6   ocenaoss        s11   
+            --------   --------   --------   --------   --------   --------
+       s7       - - 
+       s8       - -        - - 
+       s4     -3.208     -2.331       - - 
+       s6     -4.147     -3.551       - -        - - 
+ ocenaoss     -4.580     -0.964      2.667      5.309      6.105
+      s11     -1.343     -1.053      1.686      1.523      2.086       - - 
+      s12     -2.358      0.475      1.635      1.038      1.071      6.927
+      p23     -2.413     -1.026      2.063      5.594      5.789      2.874
+   llkomp      0.065      1.173     -1.634      0.041      0.361      0.597
+      p27      1.335      1.803     -0.794     -1.779     -1.628      0.159
+
+         Standardized Residuals  
+
+                 s12        p23     llkomp        p27   
+            --------   --------   --------   --------
+      s12       - - 
+      p23      0.956       - - 
+   llkomp     -1.622      1.010       - - 
+      p27     -1.173     -1.010       - -        - - 
+
+ Summary Statistics for Standardized Residuals
+
+ Smallest Standardized Residual =   -4.580
+   Median Standardized Residual =    0.000
+  Largest Standardized Residual =    6.927
+
+ Stemleaf Plot
+
+ - 4|61 
+ - 2|62443 
+ - 0|866632100080000000000000 
+   0|124560001235678 
+   2|1179 
+   4|368 
+   6|19
+ Largest Negative Standardized Residuals
+ Residual for       s4 and       s7  -3.208
+ Residual for       s6 and       s7  -4.147
+ Residual for       s6 and       s8  -3.551
+ Residual for ocenaoss and       s7  -4.580
+ Largest Positive Standardized Residuals
+ Residual for ocenaoss and       s4   2.667
+ Residual for ocenaoss and       s6   5.309
+ Residual for ocenaoss and ocenaoss   6.105
+ Residual for      s12 and      s11   6.927
+ Residual for      p23 and       s6   5.594
+ Residual for      p23 and ocenaoss   5.789
+ Residual for      p23 and      s11   2.874
+
+ ! Objasnienie wykorzystania SI/TI [zastosowania serwerowe]                     
+
+                         Qplot of Standardized Residuals
+
+  3.5..........................................................................
+     .                                                                       ..
+     .                                                                      . .
+     .                                                                    .   .
+     .                                                                  .     .
+     .                                                                 .      .
+     .                                                               .        .
+     .                                                             .          .
+     .                                                            .           .
+     .                                                          .             .
+     .                                                        .               x
+     .                                                       .                .
+     .                                                     .                  x
+     .                                                   .                    x
+     .                                                  .                     x
+ N   .                                                .                       x
+ o   .                                              .                x x      .
+ r   .                                             .           *              .
+ m   .                                           .         xx                 .
+ a   .                                         .       x x x                  .
+ l   .                                        .      xx                       .
+     .                                      .      x*                         .
+ Q   .                                    .  xx x                             .
+ u   .                                   .xx                                  .
+ a   .                         x x     .  x                                   .
+ n   .                         *     .                                        .
+ t   .                     x x x    .                                         .
+ i   .                   *        .                                           .
+ l   .                 xx       .                                             .
+ e   .           *             .                                              .
+ s   .          x            .                                                .
+     .  x                  .                                                  .
+     x                    .                                                   .
+     x                  .                                                     .
+     .                .                                                       .
+     x               .                                                        .
+     .             .                                                          .
+     .           .                                                            .
+     .          .                                                             .
+     .        .                                                               .
+     .      .                                                                 .
+     .     .                                                                  .
+     .   .                                                                    .
+     . .                                                                      .
+ -3.5..........................................................................
+   -3.5                                                                      3.5
+                             Standardized Residuals
+
+ ! Objasnienie wykorzystania SI/TI [zastosowania serwerowe]                     
+
+ Modification Indices and Expected Change
+
+         Modification Indices for LAMBDA-Y       
+
+              koszty   korzysci        use   
+            --------   --------   --------
+       s7       - -       7.711     11.448
+       s8       - -       2.406      0.445
+       s4      1.283       - -       0.264
+       s6      8.132       - -       8.092
+ ocenaoss       - -        - -        - - 
+
+         Expected Change for LAMBDA-Y    
+
+              koszty   korzysci        use   
+            --------   --------   --------
+       s7       - -      -0.305     -0.383
+       s8       - -      -0.170      0.060
+       s4     -0.074       - -       0.056
+       s6     -0.184       - -       0.352
+ ocenaoss       - -        - -        - - 
+
+         Standardized Expected Change for LAMBDA-Y       
+
+              koszty   korzysci        use   
+            --------   --------   --------
+       s7       - -      -0.213     -0.371
+       s8       - -      -0.119      0.058
+       s4     -0.069       - -       0.054
+       s6     -0.171       - -       0.341
+ ocenaoss       - -        - -        - - 
+
+         Completely Standardized Expected Change for LAMBDA-Y    
+
+              koszty   korzysci        use   
+            --------   --------   --------
+       s7       - -      -0.213     -0.371
+       s8       - -      -0.119      0.058
+       s4     -0.069       - -       0.054
+       s6     -0.171       - -       0.341
+ ocenaoss       - -        - -        - - 
+
+         Modification Indices for LAMBDA-X       
+
+            satysfak    dostoso   zlozonos   
+            --------   --------   --------
+      s11       - -       8.259      0.299
+      s12       - -       0.914      2.928
+      p23       - -        - -        - - 
+   llkomp      0.295      1.019       - - 
+      p27      0.295      1.019       - - 
+
+         Expected Change for LAMBDA-X    
+
+            satysfak    dostoso   zlozonos   
+            --------   --------   --------
+      s11       - -       0.181      0.062
+      s12       - -       0.056     -0.179
+      p23       - -        - -        - - 
+   llkomp     -0.094      0.071       - - 
+      p27      0.092     -0.070       - - 
+
+         Standardized Expected Change for LAMBDA-X       
+
+            satysfak    dostoso   zlozonos   
+            --------   --------   --------
+      s11       - -       0.181      0.044
+      s12       - -       0.056     -0.127
+      p23       - -        - -        - - 
+   llkomp     -0.079      0.071       - - 
+      p27      0.077     -0.070       - - 
+
+         Completely Standardized Expected Change for LAMBDA-X    
+
+            satysfak    dostoso   zlozonos   
+            --------   --------   --------
+      s11       - -       0.181      0.044
+      s12       - -       0.056     -0.127
+      p23       - -        - -        - - 
+   llkomp     -0.079      0.071       - - 
+      p27      0.077     -0.070       - - 
+
+         Modification Indices for BETA           
+
+              koszty   korzysci        use   
+            --------   --------   --------
+   koszty       - -      20.400     20.036
+ korzysci     20.400       - -      32.417
+      use       - -        - -        - - 
+
+         Expected Change for BETA        
+
+              koszty   korzysci        use   
+            --------   --------   --------
+   koszty       - -      -0.592     -0.798
+ korzysci     -0.278       - -       0.956
+      use       - -        - -        - - 
+
+         Standardized Expected Change for BETA           
+
+              koszty   korzysci        use   
+            --------   --------   --------
+   koszty       - -      -0.915     -0.891
+ korzysci     -0.431       - -       1.414
+      use       - -        - -        - - 
+
+         Modification Indices for GAMMA          
+
+            satysfak    dostoso   zlozonos   
+            --------   --------   --------
+   koszty       - -       5.594      0.942
+ korzysci       - -      26.872      1.481
+      use       - -        - -        - - 
+
+         Expected Change for GAMMA       
+
+            satysfak    dostoso   zlozonos   
+            --------   --------   --------
+   koszty       - -      -0.157      0.116
+ korzysci       - -       0.255     -0.108
+      use       - -        - -        - - 
+
+         Standardized Expected Change for GAMMA          
+
+            satysfak    dostoso   zlozonos   
+            --------   --------   --------
+   koszty       - -      -0.170      0.089
+ korzysci       - -       0.365     -0.109
+      use       - -        - -        - - 
+
+ No Non-Zero Modification Indices for PHI         
+
+         Modification Indices for PSI            
+
+              koszty   korzysci        use   
+            --------   --------   --------
+   koszty       - - 
+ korzysci     20.400       - - 
+      use       - -        - -        - - 
+
+         Expected Change for PSI         
+
+              koszty   korzysci        use   
+            --------   --------   --------
+   koszty       - - 
+ korzysci     -0.210       - - 
+      use       - -        - -        - - 
+
+         Standardized Expected Change for PSI            
+
+              koszty   korzysci        use   
+            --------   --------   --------
+   koszty       - - 
+ korzysci     -0.324       - - 
+      use       - -        - -        - - 
+
+         Modification Indices for THETA-EPS      
+
+                  s7         s8         s4         s6   ocenaoss   
+            --------   --------   --------   --------   --------
+       s7       - - 
+       s8       - -        - - 
+       s4      1.275      0.013       - - 
+       s6      1.879      2.327       - -        - - 
+ ocenaoss      1.095      1.095      1.384      1.385       - - 
+
+         Expected Change for THETA-EPS   
+
+                  s7         s8         s4         s6   ocenaoss   
+            --------   --------   --------   --------   --------
+       s7       - - 
+       s8       - -        - - 
+       s4     -0.048      0.005       - - 
+       s6     -0.056     -0.063       - -        - - 
+ ocenaoss     -0.080      0.052      0.068     -0.086       - - 
+
+         Completely Standardized Expected Change for THETA-EPS   
+
+                  s7         s8         s4         s6   ocenaoss   
+            --------   --------   --------   --------   --------
+       s7       - - 
+       s8       - -        - - 
+       s4     -0.048      0.005       - - 
+       s6     -0.056     -0.063       - -        - - 
+ ocenaoss     -0.083      0.054      0.070     -0.089       - - 
+
+         Modification Indices for THETA-DELTA-EPS
+
+                  s7         s8         s4         s6   ocenaoss   
+            --------   --------   --------   --------   --------
+      s11      0.000      2.695      0.517      0.838      0.031
+      s12      7.082      2.280      0.690      0.094      0.031
+      p23      3.934      0.000      1.486     27.315       - - 
+   llkomp      0.665      0.542      6.140      3.961      0.238
+      p27      0.664      0.418      1.475      4.518      0.238
+
+         Expected Change for THETA-DELTA-EPS 
+
+                  s7         s8         s4         s6   ocenaoss   
+            --------   --------   --------   --------   --------
+      s11     -0.001     -0.076      0.031      0.041     -0.010
+      s12     -0.123      0.069      0.036      0.013      0.008
+      p23     -0.106      0.001     -0.062      0.261       - - 
+   llkomp     -0.039      0.036     -0.114      0.088      0.030
+      p27      0.039      0.032      0.056     -0.094     -0.030
+
+         Completely Standardized Expected Change for THETA-DELTA-EPS 
+
+                  s7         s8         s4         s6   ocenaoss   
+            --------   --------   --------   --------   --------
+      s11     -0.001     -0.076      0.031      0.041     -0.010
+      s12     -0.123      0.069      0.036      0.013      0.009
+      p23     -0.106      0.001     -0.062      0.261       - - 
+   llkomp     -0.039      0.036     -0.114      0.088      0.031
+      p27      0.039      0.032      0.056     -0.094     -0.031
+
+         Modification Indices for THETA-DELTA    
+
+                 s11        s12        p23     llkomp        p27   
+            --------   --------   --------   --------   --------
+      s11       - - 
+      s12     47.977       - - 
+      p23      7.488      0.724       - - 
+   llkomp      1.568      0.991      0.634       - - 
+      p27      0.526      0.591      0.634       - -        - - 
+
+         Expected Change for THETA-DELTA 
+
+                 s11        s12        p23     llkomp        p27   
+            --------   --------   --------   --------   --------
+      s11       - - 
+      s12      1.219       - - 
+      p23      0.157      0.045       - - 
+   llkomp      0.066     -0.049      0.052       - - 
+      p27     -0.038     -0.038     -0.051       - -        - - 
+
+         Completely Standardized Expected Change for THETA-DELTA 
+
+                 s11        s12        p23     llkomp        p27   
+            --------   --------   --------   --------   --------
+      s11       - - 
+      s12      1.219       - - 
+      p23      0.157      0.045       - - 
+   llkomp      0.066     -0.049      0.052       - - 
+      p27     -0.038     -0.038     -0.051       - -        - - 
+
+ Maximum Modification Index is   47.98 for Element ( 2, 1) of THETA-DELTA
+
+ ! Objasnienie wykorzystania SI/TI [zastosowania serwerowe]                     
+
+ Covariances
+
+         Y - ETA 
+
+                  s7         s8         s4         s6   ocenaoss   
+            --------   --------   --------   --------   --------
+   koszty      0.857      0.556     -0.118     -0.150     -0.234
+ korzysci     -0.118     -0.077      0.487      0.619      0.339
+      use     -0.234     -0.152      0.339      0.430      0.938
+
+         Y - KSI 
+
+                  s7         s8         s4         s6   ocenaoss   
+            --------   --------   --------   --------   --------
+ satysfak      0.271      0.176     -0.306     -0.389     -0.373
+  dostoso     -0.056     -0.036      0.064      0.081      0.330
+ zlozonos      0.059      0.038     -0.067     -0.085     -0.002
+
+         X - ETA 
+
+                 s11        s12        p23     llkomp        p27   
+            --------   --------   --------   --------   --------
+   koszty      0.271      0.231     -0.056      0.059      0.058
+ korzysci     -0.306     -0.261      0.064     -0.067     -0.066
+      use     -0.373     -0.317      0.330     -0.002     -0.002
+
+         X - KSI 
+
+                 s11        s12        p23     llkomp        p27   
+            --------   --------   --------   --------   --------
+ satysfak      0.704      0.599     -0.146      0.154      0.151
+  dostoso     -0.146     -0.124      1.000     -0.027     -0.026
+ zlozonos      0.154      0.131     -0.027      0.500      0.490
+
+ ! Objasnienie wykorzystania SI/TI [zastosowania serwerowe]                     
+
+ Standardized Solution           
+
+         LAMBDA-Y    
+
+              koszty   korzysci        use   
+            --------   --------   --------
+       s7      0.926       - -        - - 
+       s8      0.601       - -        - - 
+       s4       - -       0.698       - - 
+       s6       - -       0.887       - - 
+ ocenaoss       - -        - -       0.968
+
+         LAMBDA-X    
+
+            satysfak    dostoso   zlozonos   
+            --------   --------   --------
+      s11      0.839       - -        - - 
+      s12      0.714       - -        - - 
+      p23       - -       1.000       - - 
+   llkomp       - -        - -       0.707
+      p27       - -        - -       0.693
+
+         BETA        
+
+              koszty   korzysci        use   
+            --------   --------   --------
+   koszty       - -        - -        - - 
+ korzysci       - -        - -        - - 
+      use     -0.115      0.360       - - 
+
+         GAMMA       
+
+            satysfak    dostoso   zlozonos   
+            --------   --------   --------
+   koszty      0.349       - -        - - 
+ korzysci     -0.523       - -        - - 
+      use     -0.216      0.268      0.122
+
+         Correlation Matrix of ETA and KSI       
+
+              koszty   korzysci        use   satysfak    dostoso   zlozonos   
+            --------   --------   --------   --------   --------   --------
+   koszty      1.000
+ korzysci     -0.183      1.000
+      use     -0.261      0.501      1.000
+ satysfak      0.349     -0.523     -0.459      1.000
+  dostoso     -0.061      0.091      0.341     -0.174      1.000
+ zlozonos      0.090     -0.136     -0.004      0.259     -0.038      1.000
+
+         PSI         
+         Note: This matrix is diagonal.
+
+              koszty   korzysci        use   
+            --------   --------   --------
+               0.878      0.726      0.600
+
+         Regression Matrix ETA on KSI (Standardized) 
+
+            satysfak    dostoso   zlozonos   
+            --------   --------   --------
+   koszty      0.349       - -        - - 
+ korzysci     -0.523       - -        - - 
+      use     -0.444      0.268      0.122
+
+ ! Objasnienie wykorzystania SI/TI [zastosowania serwerowe]                     
+
+ Completely Standardized Solution
+
+         LAMBDA-Y    
+
+              koszty   korzysci        use   
+            --------   --------   --------
+       s7      0.926       - -        - - 
+       s8      0.601       - -        - - 
+       s4       - -       0.698       - - 
+       s6       - -       0.887       - - 
+ ocenaoss       - -        - -       1.000
+
+         LAMBDA-X    
+
+            satysfak    dostoso   zlozonos   
+            --------   --------   --------
+      s11      0.839       - -        - - 
+      s12      0.714       - -        - - 
+      p23       - -       1.000       - - 
+   llkomp       - -        - -       0.707
+      p27       - -        - -       0.693
+
+         BETA        
+
+              koszty   korzysci        use   
+            --------   --------   --------
+   koszty       - -        - -        - - 
+ korzysci       - -        - -        - - 
+      use     -0.115      0.360       - - 
+
+         GAMMA       
+
+            satysfak    dostoso   zlozonos   
+            --------   --------   --------
+   koszty      0.349       - -        - - 
+ korzysci     -0.523       - -        - - 
+      use     -0.216      0.268      0.122
+
+         Correlation Matrix of ETA and KSI       
+
+              koszty   korzysci        use   satysfak    dostoso   zlozonos   
+            --------   --------   --------   --------   --------   --------
+   koszty      1.000
+ korzysci     -0.183      1.000
+      use     -0.261      0.501      1.000
+ satysfak      0.349     -0.523     -0.459      1.000
+  dostoso     -0.061      0.091      0.341     -0.174      1.000
+ zlozonos      0.090     -0.136     -0.004      0.259     -0.038      1.000
+
+         PSI         
+         Note: This matrix is diagonal.
+
+              koszty   korzysci        use   
+            --------   --------   --------
+               0.878      0.726      0.600
+
+         THETA-EPS   
+
+                  s7         s8         s4         s6   ocenaoss   
+            --------   --------   --------   --------   --------
+               0.143      0.639      0.513      0.214       - - 
+
+         THETA-DELTA 
+
+                 s11        s12        p23     llkomp        p27   
+            --------   --------   --------   --------   --------
+               0.296      0.490       - -       0.500      0.519
+
+         Regression Matrix ETA on KSI (Standardized) 
+
+            satysfak    dostoso   zlozonos   
+            --------   --------   --------
+   koszty      0.349       - -        - - 
+ korzysci     -0.523       - -        - - 
+      use     -0.444      0.268      0.122

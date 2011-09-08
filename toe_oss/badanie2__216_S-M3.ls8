@@ -1,0 +1,59 @@
+! Zastosowania Serwerowe
+!  
+DA NI=42 NO=216 MA=CM
+
+KM FI=badanie_toe.mtx
+
+! Etykiety miar [podane w kolejnosci w jakiej wystêpuj± w macierzy KM/CM]
+! s2 d2 s3 d3 s4 d4 s5 d5 s6 d6 s7 d7 s8 d8 s9 d9 s10 d10 s11 d11 s12 d12 s13 d13 s14 d14 p23 p24 lkomp p25b p26 p27 p3 ocenaoss p5 p6 p7 p8 s1 d1
+! lub okreslone w pliku:
+LA fi=badanie_toe.lbl
+
+! Zmiana kolejnosci/wybranie podzbioru zmiennych mierzalnych
+! Je¿eli nie wszystkie zmienne z macierzy KM/CM s± wybrane zakoñcz polecenie SE znakiem `/'
+! Kolejno¶æ podanych miar okre¶la kolejno¶æ czynników i zwyczajowo najpierw podaje siê zmienne Eta (endogeniczne)
+!     use        koszty    korzbzp   korzysci  satysfakcja dostoso  zlozo
+SE ;  ocenaoss   s7 s8     s2 s3     s4 s6     s11 s12      p23     llkomp p27 /
+
+! Okre¶lenie modelu strukturalnego NY -- liczba miar dla czynników eta (NE) ; NX -- liczba miar dla czynników xi (NK)
+!MO NY=1 NE=1  NX=11 NK=6  LX=FU,FI LY=FU,FI BE=FU,FI GA=FU,FI  PH=SY,FR PS=DI,FR TD=DI,FR TE=DI,FR
+MO NY=1 NE=1  NX=11 NK=6  LX=FU,FI LY=FU,FI BE=FU,FI GA=FU,FI  PH=SY,FR PS=DI,FR TD=DI,FR TE=DI,FR
+
+! Etykiety zmiennych ukrytych eta/xi: 
+LE ; use
+LK ; koszty korzbzp korzysci satysfakcja dostoso zlozo
+
+! Okre¶lenie zale¿no¶ci miara-czynnik, np LX(2,1) to zale¿no¶æ pomiêdzy drug± miar± i pierwszym czynnikiem
+! FR jest skrótem od Free czyli element 2,1 macierzy LX (lambda-x) jest swobodny/nieustalony
+! Macierz LX zosta³a okre¶lona wcze¶niej jako: LX=FU,FI (full/fixed, fixed oznacza ¿e ka¿dy element jest ustalony (i równy 0))
+! Indeksy macierzy to numery zmiennych okre¶lone kolejno¶ci± czynników (polecenia LE/LK/SE), przy czym miary
+! `s± liczone' oddzielnie dla zmiennych Eta i Xi, tj. LY(2,1) to zale¿no¶æ pomiêdzy drug± miar± a pierwszym czynnikiem endogenicznym
+FR LX(2,1)     ! koszty
+FR LX(4,2)     ! korzbzp
+FR LX(6,3)     ! korzysci (org)
+FR LX(8,4)     ! sat + dostoso (jedna miara)
+FR LX (11,6)   ! zlozo
+
+! Aby model by³ identyfikowalny nale¿y okre¶liæ skalê dla ka¿dego czynnika. 
+! Przypisanie warto¶ci 1 dla _pierwszej_ miary ka¿dego czynnika jest zwyczajowym sposobem okre¶lenia 
+! identyfikowalno¶ci [oznacza, ¿e za skalê czynnika przyjêto skala tej w³a¶nie miary]
+VA 1 LX(1,1) LX(3,2) LX(5,3) LX(7,4) LX(9,5) LX(10,6)
+VA 1 LY(1,1)
+
+! Je¿eli czynnik jest mierzony za pomoc± tylko jednej miary, to nale¿y ustaliæ warto¶æ wariancji b³êdu pomiaru
+! zwykle przyjmuje siê 0 (co oznacza pomiar bez b³êdu)
+FI TE 1        ! pomiar bez-bledu: use
+FI TD 9        ! ditto: dostoso
+
+VA 0 TE 1      ! Theta-EPS: use
+VA 0 TD 9      ! Theta-Delta: dostoso
+
+! Model strukturalny 
+! Sat-Koszty Sat-Korzbzp Korzysci-Use
+FR GA(1,1) GA(1,2) GA(1,3) GA(1,4) GA(1,5) GA(1,6)
+
+! Je¿eli co¶ jest nie tak to dodanie poni¿szego mo¿e pomóc
+!ST .5 ALL
+
+! Okre¶lenie 
+OU ME=ML ND=3 MI RS MR SC AD=OFF IT=500
